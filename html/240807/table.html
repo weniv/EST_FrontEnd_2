@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Table 태그 예제</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      caption {
+        caption-side: top;
+        font-weight: bold;
+        font-size: 1.2em;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML Table 태그 예제</h1>
+    <table>
+      <caption>
+        학생 성적표
+      </caption>
+      <thead>
+        <tr>
+          <th>학생</th>
+          <th>영어</th>
+          <th>수학</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>라이캣</td>
+          <td>100</td>
+          <td rowspan="2">90</td>
+        </tr>
+
+        <tr>
+          <td>로지</td>
+          <td>80</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td>평균</td>
+          <td colspan="2">90</td>
+        </tr>
+      </tfoot>
+    </table>
+  </body>
+</html>

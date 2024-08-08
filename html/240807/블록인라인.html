@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>블록 요소 및 인라인 요소</title>
+    <style>
+      body * {
+        background-color: #eee;
+        border: 3px solid salmon;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 블록요소 -->
+    <p>p</p>
+    <div>div</div>
+    <ul>
+      <li>ul li</li>
+    </ul>
+    <!-- 인라인 요소 -->
+    <span>span</span>
+    <em>em</em>
+    <strong>strong</strong>
+    <a href="#">a</a>
+    <!-- 인라인 블록 -->
+    <button>button</button>
+    <button>button</button>
+    <button>button</button>
+    <hr />
+    <div style="background-color: aqua">전 div 입니다</div>
+    <p style="background-color: beige">
+      이건 <span style="background-color: rosybrown">span태그</span> 입니다.
+    </p>
+    <!-- X -->
+    <span
+      >인라인 요소 내부에
+      <p>블록요소 중첩 불가능!</p>
+    </span>
+    <a href="”#”"><div>a태그는 가능!</div></a>
+  </body>
+</html>
