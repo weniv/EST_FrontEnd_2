@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emmet 문법</title>
+</head>
+<body>
+    <!-- cheatsheet -->
+    <!-- https://docs.emmet.io/cheat-sheet/ -->
+
+    h1{hello}*3
+    <h1>hello</h1>
+    <h1>hello</h1>
+    <h1>hello</h1>
+
+    table>tr>td
+    <table>
+        <tr>
+            <td></td>
+        </tr>
+    </table>
+
+    p+p+p
+    <p></p>
+    <p></p>
+    <p></p>
+
+    table>(tr>th{hello}*3)+(tr>td{world}*3)*3
+    <table>
+        <tr>
+            <th>hello</th>
+            <th>hello</th>
+            <th>hello</th>
+        </tr>
+        <tr>
+            <td>world</td>
+            <td>world</td>
+            <td>world</td>
+        </tr>
+        <!-- 중략 -->
+    </table>
+
+    h${hello}*6
+    <h1>hello</h1>
+    <h2>hello</h2>
+    <h3>hello</h3>
+    <h4>hello</h4>
+    <h5>hello</h5>
+    <h6>hello</h6>
+
+    h2{hello$}*6
+    <h2>hello1</h2>
+    <h2>hello2</h2>
+    <h2>hello3</h2>
+    <h2>hello4</h2>
+    <h2>hello5</h2>
+    <h2>hello6</h2>
+
+    .hello
+    <div class="hello"></div>
+
+    .one.two.three
+    <div class="one two three"></div>
+
+    #hello
+    <div id="hello"></div>
+
+    .one.two.three#four
+    <div class="one two three" id="four"></div>
+
+    a[href="www.paullab.co.kr"]
+    <a href="www.paullab.co.kr"></a>
+
+    p[a='a' b='b' c='c']
+    <p a="a" b="b" c="c"></p>
+
+    lorem
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi culpa officia vitae nesciunt harum repellendus enim sint magni odit quia saepe modi corporis, aut voluptatum eos odio iure maiores perspiciatis?
+
+    lorem10
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laudantium, ipsam?
+
+    lorem*2
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repudiandae at soluta assumenda eaque eveniet modi minima architecto, velit inventore aliquid magnam eius necessitatibus! Voluptas illo impedit dolores, modi cum eligendi.
+    Quaerat, ipsum molestiae, laudantium fuga hic voluptatibus tempora iusto non debitis quos repudiandae vitae quia vel similique amet corporis consequatur mollitia, eum facilis minima tenetur ex eos nobis libero. Reiciendis!
+    
+    p{lorem20}*3
+    <p>lorem20</p>
+    <p>lorem20</p>
+    <p>lorem20</p>
+
+    p{Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, cum!}*3
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, cum!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, cum!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod, cum!</p>
+
+    inp
+    <input type="text" name="" id="">
+
+</body>
+</html>
