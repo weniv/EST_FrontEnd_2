@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      /* 스크린리더만 읽게 해줘. 브라우저 상에서 보이지 않게 해줘! */
+      .sr-only {
+        position: absolute;
+        left: -9999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+      }
+      article {
+        background-color: rosybrown;
+      }
+    </style>
+    <title>weniv login</title>
+  </head>
+  <body>
+    <article>
+      <h2 class="sr-only">로그인</h2>
+      <p>더 편리해진 위니브에 오신 것을 환영합니다.</p>
+      <a href="#">
+        <img src="../src/img/weniv-logo.png" alt="weniv" />
+        로그인
+      </a>
+      <div>
+        <img src="../src/img/icon-lock.png" alt="" />
+        <a href="#">아이디</a>
+        <span>|</span>
+        <!-- 추후 가상요소 배우면 적용하기 -->
+        <a href="#">비밀번호</a>
+      </div>
+      <div>
+        <img src="../src/img/icon-user.png" alt="" />
+        <a href="#">회원가입</a>
+      </div>
+    </article>
+  </body>
+</html>
