@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!-- html에 캔버스 태그 생성 -->
+    <canvas
+      id="myCanvas"
+      width="200"
+      height="200"
+      style="border: 1px solid #000000"
+    ></canvas>
+    <script>
+      // 캔버스 태그에 사각형 그리기
+      // 캔버스 객체 생성 및 컨텍스트 객체 생성
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+      // 사각형 색상 및 크기 설정
+      ctx.fillStyle = "#e9e9e9";
+      ctx.fillRect(10, 10, 150, 150);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dialog태그 사용</title>
+  </head>
+  <body>
+    <button id="showDialogBtn">모달 열기</button>
+
+    <dialog id="myDialog">
+      <p>함께해서 즐거웠어요!</p>
+      <button id="closeBtn">닫기</button>
+    </dialog>
+
+    <script>
+      const dialog = document.getElementById("myDialog");
+      const showDialogBtn = document.getElementById("showDialogBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      showDialogBtn.addEventListener("click", () => {
+        dialog.showModal();
+        console.log("오르미 FE 짱짱");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        dialog.close();
+      });
+    </script>
+  </body>
+</html>
