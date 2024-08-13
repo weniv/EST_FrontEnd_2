@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form 실습</title>
+  </head>
+  <body>
+    <form
+      action="http://localhost:8000/"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <label for="id"
+        >아이디<br />
+        <input type="text" id="id" name="id" /><br /><br
+      /></label>
+      <label for="pw"
+        >비밀번호<br />
+        <input
+          type="password"
+          id="pw"
+          name="pw"
+          placeholder="특수문자 포함 필수" /><br /><br
+      /></label>
+      <label for="date"
+        >생일<br />
+        <input type="date" id="date" name="data" /><br /><br
+      /></label>
+      <label for="file"
+        >프로필사진<br />
+        <input type="file" id="file" name="file" /><br /><br
+      /></label>
+      <select name="" id="tel">
+        <optgroup>
+          <option value="1" selected>SKT</option>
+          <option value="2">KT</option>
+          <option value="3">LG U+</option>
+        </optgroup></select
+      ><br /><br />
+      <label for="number"
+        >연락처<br />
+        <input type="tel" id="number" name="number" /><br /><br
+      /></label>
+      <fieldset>
+        <legend>성별</legend>
+        <label for="male">남자</label>
+        <input type="radio" name="gender" value="male" id="male" />
+        <label for="female">여자</label>
+        <input type="radio" name="gender" value="male" id="female" />
+      </fieldset>
+      <br />
+      <fieldset>
+        <legend>사용 기술</legend>
+        <label for="html">HTML</label>
+        <input type="checkbox" name="html" value="html" id="html" />
+        <label for="css">CSS</label>
+        <input type="checkbox" name="css" value="css" id="css" />
+        <label for="java">JavaScript</label>
+        <input type="checkbox" name="java" value="java" id="java" />
+        <label for="python">Python</label>
+        <input type="checkbox" name="python" value="python" id="python" />
+        <label for="django">Django</label>
+        <input type="checkbox" name="django" value="django" id="django" />
+      </fieldset>
+      <br />
+      <label for="broswers">사용하는 브라우저를 선택하세요</label><br />
+      <input type="text" id="broswers" name="broswers" /><br /><br />
+      <input type="reset" value="초기화" />
+      <input type="submit" value="전송" />
+    </form>
+  </body>
+</html>
