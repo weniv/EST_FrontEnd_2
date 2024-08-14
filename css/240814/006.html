@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* 키워드 */
+            .key {
+                color: red;
+                border: 1px solid currentColor;
+            }
+
+            /* 16진수 Hex코드 */
+            /* #RRGGBB 구조 */
+            /* 각 자릿수를 0부터 f까지의 16진수로 표혐 */
+            .code {
+                /* color: #ffffff; #fff
+                background-color: #000000; #000
+                color: #ff0000;
+                color: #00ff00; */
+                color: #0000ff;
+            }
+
+            /* 레드, 그린, 블루 0부터 255까지의 정수값으로 표현 */
+            .rgb {
+                /* color: rgb(255,0,0); */
+                color: rgb(0, 255, 0);
+                /* color: rgb(0, 0, 255); */
+            }
+
+            /* 마지막 값을 0에서 1사이의 소수점으로 표현. 숫자가 낮을수록 투명해짐 */
+            .rgba {
+                color: rgba(0, 0, 0, 0.3);
+            }
+
+            /* 투명 */
+            .trans {
+                color: transparent;
+            }
+
+            p {
+                border: solid 1px currentColor;
+            }
+
+            div {
+                color: aquamarine;
+            }
+
+            /* 저시력자를 위해 배경색상과 color값의 대비율이 4.5:1 이상이어야함. */
+            .current {
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p class="key">안녕하세요</p>
+            <p class="code">안녕하세요</p>
+            <p class="rgb">안녕하세요</p>
+            <p class="rgba">안녕하세요</p>
+            <p class="trans">안녕하세요</p>
+            <p class="current">안녕하세요</p>
+        </div>
+    </body>
+</html>

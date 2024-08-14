@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            section {
+                color: red;
+                border: 1px solid salmon;
+            }
+
+            /* 상속은 명시된 속성값보다 우선순위 낮음 */
+            p {
+                color: black;
+            }
+
+            h1,
+            h2 {
+                border: inherit;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <h1>hello</h1>
+            <h2>hello</h2>
+            <p>hello</p>
+
+            <!-- form과 관련된 태그들은 일반적인 상속 규칙을 따르지 않는다. > 브라우저에서 기본적으로 스타일을 적용했기 때문 -->
+            <button>hello</button>
+            <input type="text" value="hello" />
+        </section>
+
+        <h1>hello</h1>
+        <h2>hello</h2>
+    </body>
+</html>

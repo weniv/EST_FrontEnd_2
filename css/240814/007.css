@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Dongle&display=swap");
+
+@font-face {
+    font-family: "SBAggroB";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SBAggroB.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "TTLaundryGothicB";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "ClimateCrisisKR-1979";
+    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+}
+
+h4 {
+    font-family: "ClimateCrisisKR-1979";
+}
+
+h1 {
+    font-family: "Dongle", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h2 {
+    font-family: "Dongle", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h3 {
+    font-family: "SBAggroB";
+}
+
+p {
+    font-family: "TTLaundryGothicB";
+}

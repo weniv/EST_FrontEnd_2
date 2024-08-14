@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            p {
+                width: 300px;
+                background-color: aqua;
+                /* 가로정렬의 기본값 */
+                text-align: left;
+                text-align: right;
+                text-align: center;
+                /* 불규칙한 여백으로 인해 권장하지 않음 */
+                text-align: justify;
+            }
+
+            span {
+                border: solid 1px black;
+                font-size: 50px;
+                line-height: 80px;
+            }
+
+            .baseline {
+                vertical-align: baseline;
+            }
+
+            .sub {
+                vertical-align: sub;
+            }
+
+            .super {
+                vertical-align: super;
+            }
+
+            .top {
+                vertical-align: top;
+            }
+
+            .middle {
+                vertical-align: middle;
+            }
+
+            .bottom {
+                vertical-align: bottom;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, in? Natus animi perspiciatis molestiae. Et alias accusamus vel, temporibus similique mollitia veritatis assumenda ipsam
+            reprehenderit voluptas? Est doloremque deserunt amet?Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae labore sunt officia quo earum amet repellendus, fugiat excepturi,
+            reiciendis obcaecati dicta placeat voluptatem numquam quos quam? Modi molestias laboriosam reprehenderit!
+        </p>
+
+        <span>부모요소 <span class="baseline">baseline</span> </span><br />
+        <span>부모요소 <span class="sub">sub</span> </span><br />
+        <span>부모요소 <span class="super">super</span> </span><br />
+        <span>부모요소 <span class="top">top</span> </span><br />
+        <span>부모요소 <span class="middle">middle</span> </span><br />
+        <span>부모요소 <span class="bottom">bottom</span> </span><br />
+    </body>
+</html>

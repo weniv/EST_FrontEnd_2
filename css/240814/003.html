@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* 특성 선택자 */
+
+            /* 특정 속성을 지니고 있는 요소 */
+            [type] {
+                border: 0;
+            }
+
+            /* 특정 속성에 특정 값을 지니고 있는 요소 */
+            [type="button"] {
+                border: 1px solid black;
+            }
+
+            /* 특정 문자열로 시작하는 속성값을 가진 요소 */
+            [class^="btn"] {
+                background-color: aquamarine;
+            }
+
+            /* 특정 문자열로 끝나는 속성값을 가진 요소 */
+            [class$="btn"] {
+                background-color: hotpink;
+            }
+
+            /* 특정 문자열을 포함하는 속성값을 가진 요소 */
+            [class*="btn"] {
+                font-size: 32px;
+            }
+
+            /* 그룹 선택자 */
+            h1,
+            h3,
+            h2 {
+                color: blueviolet;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" value="버튼" />
+        <input type="button" value="버튼" />
+        <input type="text" class="btn-first" value="버튼" />
+        <input type="text" class="last-btn" value="버튼" />
+
+        <h1>hello world</h1>
+        <h2>hello world</h2>
+        <h3>hello world</h3>
+    </body>
+</html>

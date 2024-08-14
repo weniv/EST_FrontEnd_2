@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* 자손 선택자 */
+            section p {
+                font-size: 32px;
+            }
+
+            /* 자식 선택자(직계 자식만 선택) */
+            section > p {
+                color: aqua;
+            }
+
+            /* 일반 형제 선택자 */
+            section ~ p {
+                background-color: black;
+            }
+
+            /* 인접 형제 선택자 */
+            section + p {
+                color: hotpink;
+            }
+        </style>
+    </head>
+    <body>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+        <section>
+            <div>
+                <p>p</p>
+            </div>
+            <p>p</p>
+            <p>p</p>
+        </section>
+        <p>p</p>
+        <p>p</p>
+        <p>p</p>
+    </body>
+</html>
