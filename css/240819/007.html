@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* div {
+                width: 100px;
+                height: 100px;
+                background-color: aqua;
+            } */
+
+            /* 1. 후자 우선의 원칙 */
+            /* 동일한 선택자에 동일한 속성이 작성되었을 경우 가장 뒤에 작성된 속성값을 따른다. */
+            /* div {
+                background-color: red;
+            } */
+
+            /* ----------------------------- */
+            /* 2. 구체성의 원칙 */
+            /* 1 + 100 = 101 */
+            div #id1 {
+                color: green;
+            }
+
+            /* 1 */
+            p {
+                color: black;
+            }
+
+            /* 100 */
+            #id1 {
+                color: blue;
+            }
+
+            /* 10 */
+            .class {
+                color: yellow;
+            }
+
+            /* 클래스 + 유형 선택자 11점 */
+            .ul a {
+                color: yellow;
+            }
+
+            /* 클래스 선택자 10점 */
+            .click {
+                color: green;
+                background: black;
+            }
+
+            /* 유형 선택자 12점이 아니라 9점이라고 생각을 해주셔야해요
+            왜냐? 요소 선택자는 아무리 많아도 클래스 선택자를 이길 수 없어요. */
+            html body main section article div ul li p strong span a {
+                background: purple;
+                color: blue;
+            }
+
+            .container {
+                width: 200px;
+                height: 200px;
+                background-color: antiquewhite;
+                color: cadetblue;
+            }
+
+            .item {
+                width: 100px;
+                height: 100px;
+                background-color: aqua;
+                color: black;
+            }
+
+            /* 3. 중요성의 원칙 */
+            /* CSS의 자연스러운 상속을 깨기 때문에 사용은 지양하는것이 좋다. */
+            * {
+                color: red !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+
+        <div>
+            <p id="id1" class="class">1. 이 글자는 어떤 색일까요?</p>
+            <!-- 1000 -->
+            <p id="id2" class="class" style="color: red">2. 이 글자는 어떤 색일까요?</p>
+        </div>
+
+        <main>
+            <section>
+                <article>
+                    <div>
+                        <ul class="ul">
+                            <li>
+                                <p>
+                                    <strong>
+                                        <span>
+                                            <a href="#" class="click"> 1. 이 글자는 어떤 색일까요? 2. 배경색은 어떤 색일까요? </a>
+                                        </span>
+                                    </strong>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <div class="container">
+            container
+            <div class="item">item</div>
+        </div>
+
+        <!-- 1. 가장 우선순위가 높은 것 !important
+        
+        2. 인라인 스타일 > id > class > 태그
+
+        3. 동일한 레벨일 때, 후자 우선의 원칙을 적용한다. -->
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            :root {
+                --main-color: hotpink;
+                /* 변수를 사용한 모든 요소에 한번에 변경 가능 */
+                /* 유지보수에 용이하다. => 실무에서 많이 사용 */
+                /* --main-color: blue; */
+                --point1-color: red;
+                --point2-color: orange;
+                --main-font-size: 32px;
+                --btn-padding: 4px 20px;
+            }
+
+            body {
+                color: var(--main-color);
+            }
+
+            button {
+                border: solid 2px var(--main-color);
+                padding: var(--btn-padding);
+                font-size: var(--main-font-size);
+                color: var(--main-color);
+            }
+
+            .color1 button {
+                background-color: var(--point1-color);
+            }
+
+            .color2 button {
+                background-color: var(--point2-color);
+            }
+        </style>
+    </head>
+    <body>
+        <p>안녕하세요</p>
+        <button>로그인 버튼</button>
+        <div class="color1">
+            <p>안녕하세요</p>
+            <button>회원가입 버튼</button>
+        </div>
+        <div class="color2">
+            <p>안녕하세요</p>
+            <button>비밀번호 찾기 버튼</button>
+        </div>
+    </body>
+</html>

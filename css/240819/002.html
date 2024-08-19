@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* 첫번째 요소를 선택 */
+            li:first-child {
+                color: brown;
+            }
+
+            /* 마지막 요소를 선택 */
+            li:last-child {
+                color: aqua;
+            }
+
+            /* 3번째 요소 선택 */
+            li:nth-child(3) {
+                font-weight: bold;
+            }
+
+            /* 홀수번째 */
+            li:nth-child(odd) {
+                background-color: lavenderblush;
+            }
+
+            li:nth-child(2n + 1) {
+                background-color: lightseagreen;
+            }
+
+            li:nth-child(2n - 1) {
+                background-color: lime;
+            }
+
+            /* 짝수번째 */
+            li:nth-child(even) {
+                background-color: lightgreen;
+            }
+
+            li:nth-child(2n) {
+                background-color: lightcoral;
+            }
+
+            /* 앞에서 3개의 요소 선택 */
+            li:nth-child(-n + 3) {
+                text-decoration: underline;
+            }
+
+            ul:first-child {
+                border: solid 4px black;
+            }
+
+            /* body태그의 직계자손에는 :last-child 가상 클래스가 적용되지 않는다! */
+            ul:last-child {
+                border: solid 4px black;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+            <li>리스트</li>
+        </ul>
+        <ul>
+            <li>마지막 요소</li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* CSS box model은 블록레벨 요소에 적용 */
+            div {
+                width: 100px;
+                /* width: auto; */
+                height: 100px;
+                /* height: auto; */
+                background-color: aquamarine;
+                /* margin: 10px; */
+            }
+
+            /* 인라인레벨 요소는 width, height, 상하 margin 값이 적용되지 않음  */
+            span {
+                background-color: hotpink;
+                width: 100px;
+                height: 100px;
+                margin: 10px;
+            }
+
+            .box1,
+            .box3 {
+                /* padding은 테두리 안쪽 여백 */
+                /* 상우하좌 한번에 적용 */
+                padding: 20px;
+                /* 상 우 하 좌 */
+                padding: 20px 20px 20px 20px;
+                /* 상 좌우 하 */
+                padding: 20px 20px 20px;
+                /* 상하 좌우 */
+                padding: 20px 20px;
+
+                /* margin은 테두리 바깥쪽 여백 */
+                /* 상우하좌 한번에 적용 */
+                margin: 20px;
+                /* 상 우 하 좌 시계방향 */
+                margin: 20px 20px 20px 20px;
+                /* 상 좌우 하 */
+                margin: 20px 20px 20px;
+                /* 상하 좌우 */
+                margin: 20px 20px;
+
+                border: 1px solid #eee;
+            }
+
+            .box1 {
+                box-sizing: content-box;
+            }
+
+            .box3 {
+                box-sizing: border-box;
+            }
+
+            .box4 {
+                width: 400px;
+                background-color: beige;
+            }
+
+            p {
+                width: 100px;
+                background-color: blue;
+                color: #fff;
+                /* 가운데 정렬 */
+                /* margin: auto; */
+                /* 오른쪽 정렬 */
+                margin: auto 0 auto auto;
+            }
+
+            .A,
+            .B {
+                width: 100px;
+                height: 100px;
+            }
+
+            .A {
+                background-color: lawngreen;
+                /* margin-bottom: 100px; */
+                margin-bottom: 150px;
+            }
+
+            .B {
+                background-color: thistle;
+                /* margin-top: 50px; */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+        <div class="box4">
+            <p>margin을 사용한 정렬</p>
+        </div>
+
+        <div class="A"></div>
+        <div class="B"></div>
+        <!-- <span>span</span> -->
+    </body>
+</html>

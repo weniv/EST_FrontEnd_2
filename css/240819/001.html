@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            a {
+                color: rgb(255, 146, 127);
+                text-decoration: none;
+            }
+
+            /* 이미 방문한 링크일 때 */
+            a:visited {
+                color: purple;
+            }
+
+            /* 마우스 포인터가 올라갈 때 */
+            a:hover {
+                font-size: 2em;
+            }
+
+            /* 마우스 포인터가 누르고 있을 때 */
+            a:active {
+                border: solid 2px currentColor;
+            }
+
+            /* 현재 초점을 가지고 있을 때 */
+            a:focus {
+                background-color: turquoise;
+            }
+
+            /* :active와 :focus의 차이 */
+            /* 지속시간 :focus > :active
+            1. :focus
+            - 다른 요소로 초점이 이동될 때까지 유지
+            - 사용자에게 현재 상호작용중인 요소를 알려주기 위해 사용 => 접근성
+            2. :active
+            - 요소를 클릭한 마우스 버튼을 떼기 전까지만 유지
+            - 시각적인 피드백을 위해 사용 */
+        </style>
+    </head>
+    <body>
+        <a href="https://www.naver.com">네이버</a>
+        <a href="https://www.samsung.com">삼성</a>
+        <a href="dkddkslslslsl">유효하지 않은 링크</a>
+    </body>
+</html>

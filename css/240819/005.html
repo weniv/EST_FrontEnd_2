@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            p::before {
+                content: "프론트엔드 개발자 양성과정 오르미 2기 여러분 🧡";
+                font-weight: bold;
+                color: orange;
+            }
+
+            p::after {
+                content: "🙌🙌🙌";
+            }
+
+            /* img, br, input 태그는 빈태그이기 때문에 부모가 될 수 없음. > 가상요소를 자식으로 넣어줄 수 없음  */
+            /* img::before {
+                content: "뉴진스 하니 최고!!!";
+            }
+
+            br::before {
+                content: "뉴진스 하니 최고!!!";
+            }
+
+            input::before {
+                content: "뉴진스 하니 최고!!!";
+            } */
+
+            /* 아래처럼 작성하면 placeholder에는 스타일이 적용되지 않음. */
+            input {
+                color: red;
+            }
+
+            input::placeholder,
+            textarea::placeholder {
+                color: red;
+                opacity: 0.4;
+            }
+        </style>
+    </head>
+    <body>
+        <p>
+            <strong>안녕하세요!</strong>
+        </p>
+
+        <img src="https://file.osen.co.kr/article_thumb/2024/06/20/202406200723772269_66735a4d91c1a_320x.jpg" alt="" />
+        <br />
+
+        <input type="text" placeholder="아이디를 입력하세요." />
+        <textarea name="" id="" placeholder="자기소개를 작성해주세요."></textarea>
+    </body>
+</html>

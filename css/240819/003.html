@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            /* 타입을 따집니다. 동일한 타입을 가진 요소들 중의 첫번째 요소를 선택
+            h1 태그 중 첫번째 요소, h2 태그 중 첫번째 요소, h3 태그 중 첫번째요소 */
+            div :nth-of-type(1) {
+                color: red;
+            }
+
+            /* 자식 중 유일한 타입을 가진 요소 */
+            div :only-of-type {
+                background-color: lime;
+            }
+
+            /* :not 부정선택자, 괄호안의 조건을 만족하는 요소를 제외한 자식요소 선택 */
+            div :not(:first-child) {
+                font-weight: 100;
+            }
+
+            div :not(:last-child) {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>hello world</h1>
+            <h2>hello world</h2>
+            <h3>hello world</h3>
+            <h1>hello world</h1>
+            <h2>hello world</h2>
+            <h3>hello world</h3>
+            <h1>hello world</h1>
+            <h2>hello world</h2>
+            <h3>hello world</h3>
+            <strong>hello world</strong>
+        </div>
+    </body>
+</html>
