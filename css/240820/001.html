@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                width: 200px;
+                height: 200px;
+                margin-bottom: 200px;
+                border: solid 2px black;
+            }
+
+            .hidden {
+                overflow: hidden;
+            }
+
+            .scroll {
+                overflow: scroll;
+            }
+
+            .auto {
+                overflow: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h2>visible</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, atque laudantium eveniet neque ad facilis, nesciunt facere saepe ullam, vero reiciendis nobis distinctio est animi
+            excepturi tenetur. Fuga, porro officia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo deleniti sapiente, nemo, officia temporibus hic pariatur inventore tempore eos
+            quibusdam ad ipsam quia est, itaque vero. Accusamus illo sapiente autem!
+        </div>
+
+        <!-- 요소 밖으로 넘치는 컨텐츠를 안보이게 -->
+        <div class="hidden">
+            <h2>hidden</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, atque laudantium eveniet neque ad facilis, nesciunt facere saepe ullam, vero reiciendis nobis distinctio est animi
+            excepturi tenetur. Fuga, porro officia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo deleniti sapiente, nemo, officia temporibus hic pariatur inventore tempore eos
+            quibusdam ad ipsam quia est, itaque vero. Accusamus illo sapiente autem!
+        </div>
+
+        <!-- 요소 밖으로 넘치는 컨텐츠를 스크롤을 통해 볼 수 있게 -->
+
+        <div class="scroll">
+            <h2>scroll</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, atque laudantium eveniet neque ad facilis, nesciunt facere saepe ullam, vero reiciendis nobis distinctio est animi
+            excepturi tenetur. Fuga, porro officia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo deleniti sapiente, nemo, officia temporibus hic pariatur inventore tempore eos
+            quibusdam ad ipsam quia est, itaque vero. Accusamus illo sapiente autem!
+        </div>
+
+        <!-- 요소 밖으로 넘치는 컨텐츠가 있는 경우에만 스크롤 추가 -->
+        <div class="auto">
+            <h2>auto</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing
+        </div>
+
+        <div class="auto">
+            <h2>auto</h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, atque laudantium eveniet neque ad facilis, nesciunt facere saepe ullam, vero reiciendis nobis distinctio est animi
+            excepturi tenetur. Fuga, porro officia? Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo deleniti sapiente, nemo, officia temporibus hic pariatur inventore tempore eos
+            quibusdam ad ipsam quia est, itaque vero. Accusamus illo sapiente autem!
+        </div>
+    </body>
+</html>

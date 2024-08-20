@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                height: 600px;
+                background-image: url(./image.png);
+                background-repeat: no-repeat;
+                background-position: bottom;
+            }
+
+            div::before {
+                content: "";
+                display: block;
+                height: 300px;
+                background-image: url(./image.png);
+                background-repeat: no-repeat;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 문맥상 필요한 정보를 제공하지 않고 디자인적 요소만으로 사용될 경우 -->
+        <div></div>
+        <!-- 문맥상 필요한 정보를 제공할 때 -->
+        <!-- alt값이 꼭 읽혀야하는 정보일 때 사용 -->
+        <img src="./image.png" alt="울고 있는 사막여우 캐릭터" />
+        <article>
+            <!-- 필요한 정보가 중복될 때 -->
+            <h2>울고 있는 사막여우 캐릭터</h2>
+            <img src="./image.png" alt="" />
+        </article>
+    </body>
+</html>
