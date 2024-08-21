@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            /* aspect-ratio 사용해서 1:1 */
+            .ratio1 img {
+                width: 30%;
+                aspect-ratio: 1 / 1;
+                object-fit: cover;
+                /* object-position: 0 0; */
+            }
+
+            /* aspect-ratio 사용해서 2:1 */
+            .ratio2 img {
+                width: 30%;
+                aspect-ratio: 2 / 1;
+                object-fit: cover;
+                /* object-position: 0 0; */
+            }
+
+            /* padding 백분율 사용해서 2:1 */
+            .thumb1 {
+                width: 30%;
+                display: inline-block;
+            }
+
+            .thumb1 div {
+                height: 0;
+                padding-top: 50%;
+                position: relative;
+            }
+
+            .thumb1 div img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            /* padding 백분율 사용해서 1:1 */
+            .thumb2 {
+                width: 30%;
+                display: inline-block;
+            }
+
+            .thumb2 div {
+                height: 0;
+                padding-top: 100%;
+                position: relative;
+            }
+
+            .thumb2 div img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ratio1">
+            <img src="./images/weniv-binky.png" alt="위니브 토끼 캐릭터 빙키" />
+            <img src="./images/weniv-chilli.png" alt="위니브 다람쥐 캐릭터 칠리" />
+            <img src="./images/weniv-garry.png" alt="위니브 개구리 캐릭터 개리" />
+            <img src="./images/weniv-licat.png" alt="위니브 고양이 캐릭터 라이캣" />
+            <img src="./images/weniv-suri.png" alt="위니브 수달 캐릭터 수리" />
+            <img src="./images/weniv-wade.png" alt="위니브 나무늘보 캐릭터 웨이드" />
+        </div>
+        <div class="ratio2">
+            <img src="./images/weniv-binky.png" alt="위니브 토끼 캐릭터 빙키" />
+            <img src="./images/weniv-chilli.png" alt="위니브 다람쥐 캐릭터 칠리" />
+            <img src="./images/weniv-garry.png" alt="위니브 개구리 캐릭터 개리" />
+            <img src="./images/weniv-licat.png" alt="위니브 고양이 캐릭터 라이캣" />
+            <img src="./images/weniv-suri.png" alt="위니브 수달 캐릭터 수리" />
+            <img src="./images/weniv-wade.png" alt="위니브 나무늘보 캐릭터 웨이드" />
+        </div>
+
+        <div class="thumb1">
+            <div><img src="./images/weniv-binky.png" alt="위니브 토끼 캐릭터 빙키" /></div>
+        </div>
+        <div class="thumb1">
+            <div><img src="./images/weniv-chilli.png" alt="위니브 다람쥐 캐릭터 칠리" /></div>
+        </div>
+        <div class="thumb1">
+            <div><img src="./images/weniv-garry.png" alt="위니브 개구리 캐릭터 개리" /></div>
+        </div>
+        <div class="thumb1">
+            <div><img src="./images/weniv-licat.png" alt="위니브 고양이 캐릭터 라이캣" /></div>
+        </div>
+        <div class="thumb1">
+            <div><img src="./images/weniv-suri.png" alt="위니브 수달 캐릭터 수리" /></div>
+        </div>
+        <div class="thumb1">
+            <div><img src="./images/weniv-wade.png" alt="위니브 나무늘보 캐릭터 웨이드" /></div>
+        </div>
+
+        <div class="thumb2">
+            <div><img src="./images/weniv-binky.png" alt="위니브 토끼 캐릭터 빙키" /></div>
+        </div>
+        <div class="thumb2">
+            <div><img src="./images/weniv-chilli.png" alt="위니브 다람쥐 캐릭터 칠리" /></div>
+        </div>
+        <div class="thumb2">
+            <div><img src="./images/weniv-garry.png" alt="위니브 개구리 캐릭터 개리" /></div>
+        </div>
+        <div class="thumb2">
+            <div><img src="./images/weniv-licat.png" alt="위니브 고양이 캐릭터 라이캣" /></div>
+        </div>
+        <div class="thumb2">
+            <div><img src="./images/weniv-suri.png" alt="위니브 수달 캐릭터 수리" /></div>
+        </div>
+        <div class="thumb2">
+            <div><img src="./images/weniv-wade.png" alt="위니브 나무늘보 캐릭터 웨이드" /></div>
+        </div>
+    </body>
+</html>

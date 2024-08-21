@@ -1,0 +1,175 @@
+@font-face {
+    font-family: "Pretendard-Regular";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Pretendard-Bold";
+    src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff") format("woff");
+    font-weight: 700;
+    font-style: normal;
+}
+
+:root {
+    --main-color: #29363d;
+    --sub-color: #5a6a72;
+}
+
+body {
+    font-family: "Pretendard-Regular", sans-serif;
+    color: var(--main-color);
+
+    background-color: #eee;
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 27px;
+}
+
+/* 공통 속성 */
+
+article {
+    width: 288px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.ell2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 2줄 넘어가면 말줄임 */
+}
+
+.read {
+    font-family: "Pretendard-Bold";
+    font-size: 14px;
+    text-decoration: underline;
+    width: 70px;
+    padding: 3px 6px;
+}
+
+/* card1 */
+
+.card1 {
+    height: 348px;
+}
+
+.card1 img {
+    width: 100%;
+    aspect-ratio: 288/196;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.card1 .text-group {
+    padding: 20px 16px 16px;
+}
+
+.card1 h2 {
+    font-family: "Pretendard-Bold";
+}
+
+.card1 .content {
+    margin: 16px 0;
+    font-size: 12px;
+    line-height: 19.2px;
+    color: var(--sub-color);
+}
+
+/* card2 */
+
+.card2 {
+    position: relative;
+}
+
+.card2 header {
+    height: 68px;
+}
+
+.card2 header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+}
+
+.card2 .title {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 200px;
+    height: 40px;
+}
+
+.card2 h3 {
+    font-family: "Pretendard-Bold";
+    line-height: 19.2px;
+    margin-bottom: 1px;
+}
+
+.card2 .title p {
+    font-size: 12px;
+    line-height: 14.4px;
+    color: var(--sub-color);
+}
+
+.thumbnail {
+    width: 100%;
+    aspect-ratio: 288/196;
+    object-fit: cover;
+}
+
+.card2 .content {
+    padding: 10px 16px 16px;
+}
+
+.card2 .content .ell2 {
+    font-size: 12px;
+    line-height: 19.2px;
+    color: var(--sub-color);
+    margin-bottom: 12px;
+    height: 40px;
+}
+
+.card2 .read {
+    position: relative;
+}
+
+.card2 .read::after {
+    content: "";
+    display: block;
+
+    width: 4px;
+    height: 4px;
+
+    position: absolute;
+    right: 0;
+    top: 50%;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+
+    transform: translate(-10px, -50%) rotate(45deg);
+}
+
+.card2 .btn-group {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    height: 32px;
+}
+
+.card2 .btn-group img {
+    width: 32px;
+    height: 32px;
+    vertical-align: top;
+}
+
+.card2 button:nth-child(2),
+.card2 button:nth-child(3) {
+    margin-left: 8px;
+}
