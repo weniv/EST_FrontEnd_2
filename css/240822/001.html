@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            img {
+                float: right;
+            }
+
+            span {
+                float: left;
+                background-color: aqua;
+                margin: 20px;
+            }
+
+            p {
+                clear: both;
+            }
+
+            .parent {
+                background-color: blue;
+
+                /* 모든 자식요소가 float속성을 가질 때 부모요소는 자식요소의 높이를 인식 못함 */
+
+                /* 해결 방법 1 (유연성이 떨어진다) */
+                /* height: 150px; */
+
+                /* 해결 방법 2 */
+                /* overflow: hidden; */
+            }
+
+            /* 해결 방법 3 (가장 많이 사용되는 방법) */
+            .clearfix::after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <span>hello world</span>
+        <img src="http://placehold.it/200x150" alt="" />
+        <p>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta officia tempore similique nobis repudiandae minima. Adipisci, quia est quo consequatur nostrum architecto repudiandae
+            pariatur nisi, quos, culpa veniam repellendus non. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique vero et ducimus deserunt odit? Ipsum, odio obcaecati quam voluptates
+            modi, porro adipisci ratione quaerat, architecto ex nobis in expedita distinctio?
+        </p>
+
+        <div class="parent clearfix">
+            <span>hello world</span>
+            <img src="http://placehold.it/200x150" alt="" />
+            <!-- <img src="http://placehold.it/200x150" alt="" />
+            <img src="http://placehold.it/200x150" alt="" />
+            <img src="http://placehold.it/200x150" alt="" />
+            <img src="http://placehold.it/200x150" alt="" /> -->
+        </div>
+    </body>
+</html>
