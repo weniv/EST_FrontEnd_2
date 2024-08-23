@@ -32,14 +32,19 @@
                 align-items: flex-end;
                 align-items: center; */
 
+                /* 교차축 기준으로 정렬을 하되 flex-wrap: wrap;이 설정되어 있고, 여러줄인 경우 적용 */
+                align-content: space-between;
+                align-content: space-around;
+                align-content: space-evenly;
+
                 /* 아이템 사이에 간격을 주는 속성 */
                 gap: 50px;
                 /* flex-wrap: wrap;일 때 행, 열 */
                 gap: 50px 30px;
 
                 /* 아이템을 한줄에 배치할 것인지 아닌지  */
-                flex-wrap: nowrap;
-                /* flex-wrap: wrap; */
+                /* flex-wrap: nowrap; */
+                flex-wrap: wrap;
                 /* 행의 순서가 변경 */
                 /* flex-wrap: wrap-reverse; */
 
@@ -48,7 +53,7 @@
             }
 
             .item {
-                /* width: 150px; */
+                width: 150px;
                 height: 150px;
                 line-height: 50px;
                 text-align: center;
@@ -84,26 +89,26 @@
 
             .item:nth-child(1) {
                 /* 뷰포트가 넓어질 때 아이템의 비율을 지정 */
-                flex-grow: 1;
+                /* flex-grow: 1; */
                 /* 뷰포트가 좁아질 때 아이템의 비율을 지정 */
                 /* 값이 클수록 더 많이작아짐, 0일때 작아지지 않음 */
-                flex-shrink: 1;
+                /* flex-shrink: 1; */
                 /* 각 아이템의 교차축 기준 정렬 */
-                align-self: flex-start;
+                /* align-self: flex-start; */
                 /* order: 3; */
             }
 
             .item:nth-child(2) {
-                flex-grow: 2;
-                flex-shrink: 2;
-                align-self: center;
+                /* flex-grow: 2; */
+                /* flex-shrink: 2; */
+                /* align-self: center; */
                 /* order: 2; */
             }
 
             .item:nth-child(3) {
-                flex-grow: 3;
-                align-self: flex-end;
-                flex-shrink: 3;
+                /* flex-grow: 3; */
+                /* align-self: flex-end; */
+                /* flex-shrink: 3; */
                 /* order: 1; */
             }
         </style>
@@ -113,11 +118,11 @@
             <div class="item">1</div>
             <div class="item">2</div>
             <div class="item">3</div>
-            <!-- <div class="item">4</div>
+            <div class="item">4</div>
             <div class="item">5</div>
             <div class="item">6</div>
             <div class="item">7</div>
-            <div class="item">8</div> -->
+            <div class="item">8</div>
         </div>
     </body>
 </html>
