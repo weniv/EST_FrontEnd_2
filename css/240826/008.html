@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            @keyframes move-watch {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+            .container {
+                width: 400px;
+                height: 400px;
+                background-color: aquamarine;
+                border-radius: 30%;
+                position: relative;
+            }
+
+            div {
+                width: 10px;
+                height: 150px;
+                background-color: black;
+                position: absolute;
+                top: 200px;
+                left: 200px;
+                animation-name: move-watch;
+                transform-origin: center top;
+            }
+
+            .sec {
+                background-color: red;
+                animation-duration: 60s;
+                animation-timing-function: steps(60);
+            }
+
+            .min {
+                background-color: green;
+                animation-duration: 120s;
+            }
+
+            .hour {
+                animation-duration: 240s;
+            }
+        </style>
+    </head>
+    <body>
+        <article class="container">
+            <div class="sec"></div>
+            <div class="min"></div>
+            <div class="hour"></div>
+        </article>
+    </body>
+</html>

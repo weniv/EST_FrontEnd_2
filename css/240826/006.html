@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            @keyframes cat {
+                0% {
+                    transform: translateX(0);
+                    background: url(./images/cat/1.png) no-repeat;
+                }
+
+                20% {
+                    transform: translateX(-100px);
+                    background: url(./images/cat/2.png) no-repeat;
+                }
+
+                40% {
+                    transform: translateX(-200px);
+                    background: url(./images/cat/3.png) no-repeat;
+                }
+
+                60% {
+                    transform: translateX(-300px);
+                    background: url(./images/cat/1.png) no-repeat;
+                }
+
+                80% {
+                    transform: translateX(-400px);
+                    background: url(./images/cat/2.png) no-repeat;
+                }
+
+                100% {
+                    transform: translateX(-500px);
+                    background: url(./images/cat/3.png) no-repeat;
+                }
+            }
+
+            .cat {
+                width: 313px;
+                height: 436px;
+                background-image: url(./images/cat/1.png);
+                background-repeat: no-repeat;
+                position: absolute;
+                left: 600px;
+
+                animation-name: cat;
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cat"></div>
+    </body>
+</html>
