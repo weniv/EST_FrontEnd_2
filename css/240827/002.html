@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .container {
+                height: 200px;
+                display: flex;
+                margin-bottom: 20px;
+            }
+
+            .item {
+                width: 200px;
+                height: 100px;
+                background-color: orange;
+                transform: rotateY(90deg);
+            }
+
+            .container1 {
+                perspective: 500px;
+                /* 화면을 보는 소실점을 지정 */
+                perspective-origin: left top;
+            }
+
+            .container2 {
+                perspective: 500px;
+            }
+
+            .container3 {
+                perspective: 500px;
+                perspective-origin: right bottom;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>perspective-origin</h2>
+        <div class="container container1">
+            <div class="item">left top</div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="container container2">
+            <div class="item">center</div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+        <div class="container container3">
+            <div class="item">right bottom</div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

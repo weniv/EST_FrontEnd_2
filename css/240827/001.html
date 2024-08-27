@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            @keyframes rotateX {
+                from {
+                    transform: rotateX(0deg);
+                }
+                to {
+                    transform: rotateX(360deg);
+                }
+            }
+
+            @keyframes rotateY {
+                from {
+                    transform: rotateY(0deg);
+                }
+                to {
+                    transform: rotateY(360deg);
+                }
+            }
+
+            .container {
+                display: flex;
+                padding: 50px;
+                background-color: crimson;
+
+                /* 3D 공간의 깊이를 설정 */
+                /* 값이 작을수록 3D효과가 강해지고 값이 클수록 약해진다 */
+                /* perspective: 100px; */
+                perspective: 500px;
+                /* perspective: 800px; */
+            }
+
+            .item {
+                width: 150px;
+                height: 100px;
+                background-color: cornflowerblue;
+                border: 1px solid black;
+
+                /* transform: rotateY(80deg); */
+                /* transform: rotateX(80deg); */
+
+                /* animation: rotateX 2s infinite linear; */
+                animation: rotateY 2s infinite linear;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

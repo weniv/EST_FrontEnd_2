@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+
+        <style>
+            .container {
+                perspective: 500px;
+                display: flex;
+                justify-content: center;
+            }
+
+            .item {
+                width: 200px;
+                height: 200px;
+                background-color: aqua;
+                transition: all 1s;
+            }
+
+            .item:hover {
+                /* transform: translateZ(100px); */
+                /* transform: rotateX(45deg); */
+                /* transform: rotateY(45deg); */
+                /* transform: rotateZ(45deg); */
+                /* transform: scale3d(2, 2, 2); */
+                transform: translateZ(100px) rotateX(45deg) rotateY(45deg) rotateZ(45deg) scale3d(2, 2, 2);
+            }
+
+            .container2 > div {
+                width: 100px;
+                height: 100px;
+                background-color: orange;
+                margin-bottom: 50px;
+                /* perspective: 500px; */
+            }
+
+            .box1 {
+                transform: perspective(300px) scaleZ(1) rotateY(75deg);
+            }
+
+            .box2 {
+                transform: perspective(300px) scaleZ(2) rotateY(75deg);
+            }
+
+            .box3 {
+                transform: perspective(300px) scaleZ(3) rotateY(75deg);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>transform</h2>
+
+        <div class="container">
+            <div class="item">hover me</div>
+        </div>
+
+        <div class="container2">
+            <div class="box1"></div>
+            <div class="box2"></div>
+            <div class="box3"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .container {
+                perspective: 1000px;
+            }
+
+            .item {
+                width: 200px;
+                height: 200px;
+                background-color: orange;
+                transform: rotateY(45deg);
+
+                /* 자식요소들을 3D 공간에 독립적으로 변형 가능 */
+                transform-style: preserve-3d;
+            }
+
+            .item::after {
+                content: "";
+                position: absolute;
+                width: 50%;
+                height: 50%;
+                background-color: aqua;
+
+                transform: translateZ(100px);
+            }
+        </style>
+    </head>
+    <body>
+        <h2>transform-style</h2>
+
+        <div class="container">
+            <div class="item"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                height: 100vh;
+                background-color: antiquewhite;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .card {
+                width: 200px;
+                height: 300px;
+                background-color: aqua;
+                transform: perspective(400px);
+                transform-style: preserve-3d;
+                transition: all 1s cubic-bezier(0.88, 0.42, 0.56, 1.26);
+                position: relative;
+            }
+
+            .front,
+            .back {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                backface-visibility: hidden;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .front {
+                background-color: turquoise;
+                flex-direction: column;
+            }
+
+            .back {
+                background-color: tomato;
+                transform: rotateY(180deg);
+            }
+
+            .wrap:hover .card {
+                transform: perspective(400px) scale(1.5) rotateY(900deg);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <div class="card">
+                <div class="front">
+                    <h1>FE Developer</h1>
+                    <strong>전유진</strong>
+                </div>
+                <div class="back">
+                    <p>안녕하세요!</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
