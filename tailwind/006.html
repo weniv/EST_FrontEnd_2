@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body>
+        <div class="flex">
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+        </div>
+
+        <br />
+
+        <div class="flex gap-4">
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+        </div>
+
+        <br />
+
+        <div class="flex gap-4 flex-col">
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+        </div>
+
+        <br />
+
+        <div class="flex gap-4 flex-wrap">
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+        </div>
+
+        <br />
+        <div class="w-32 h-32 bg-red-200 flex justify-center items-center">
+            <div class="bg-blue-200">item</div>
+        </div>
+
+        <!-- 
+        justify-content: center        - justify-center
+        justify-content: space-between - justify-between
+        align-items: flex-start        - items-start
+        align-items: center            - items-center
+        align-self: auto               - self-auto
+        align-self: flex-start         - self-start
+        align-self: flex-end           - self-end
+        flex: 1 1 0%                   - flex-1
+        flex: 1 1 auto                 - flex-auto
+        flex: 0 1 auto                 - flex-initial
+        flex: none                     - flex-none
+    -->
+
+        <!-- 
+        Modifier	Media query
+        max-sm	@media not all and (min-width: 640px) { ... }
+        max-md	@media not all and (min-width: 768px) { ... }
+        max-lg	@media not all and (min-width: 1024px) { ... }
+        max-xl	@media not all and (min-width: 1280px) { ... }
+        max-2xl	@media not all and (min-width: 1536px) { ... } 
+    -->
+        <br />
+        <div class="flex md:flex-row flex-col">
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+            <div class="bg-blue-200">item</div>
+        </div>
+    </body>
+</html>
