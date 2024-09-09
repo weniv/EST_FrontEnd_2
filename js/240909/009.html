@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 숫자 자료형
+      console.log(typeof 23);
+      console.log(typeof 23.4);
+
+      // 숫자 표현방법 : JS는 숫자를 십진수로 표현
+      console.log("10진수", 120);
+      console.log("2진수", 0b1100); // 2진수 1100을 10진수로 처리
+      console.log("8진수", 0o16); // 8진수 16을 10진수로 처리
+      console.log("16진수", 0xff); // 16진수 FF를 10진수로 처리
+
+      console.log("=== 숫자형 연산 ===");
+      console.log(`5 + 2 = ${5 + 2}`);
+      console.log(`5 - 2 = ${5 - 2}`);
+      console.log(`5 * 2 = ${5 * 2}`);
+      console.log(`5 / 2 = ${5 / 2}`);
+      console.log(`5 ** 2 = ${5 ** 2}`); // 지수(5^2)
+      console.log(`5 % 2 = ${5 % 2}`); // 나머지
+
+      console.log("=== 단항 연산 ===");
+      console.log(+4);
+      console.log(+"4"); // 타입변환(숫자형으로 변환)
+      console.log(typeof +"4");
+      console.log(-(-4));
+      console.log(-4);
+      console.log(-"4"); // 타입변환(숫자형으로 변환);
+
+      console.log("=== 증감 연산 ===");
+      let num = 3;
+      console.log(num++); // 3 console.log(num) -> n = n + 1
+      console.log(num); // 4
+      console.log(++num); // n = n + 1 -> console.log(num);
+
+      console.log("감소", num--);
+      console.log(num);
+      console.log(--num);
+      // 앞에 오면 전위 / 뒤에 오면 후위
+
+      console.log("=== 비교 연산 ===");
+      // 결과는 항상 참 또는 거짓, true/false의 불리언 값으로 결과를 출력
+      console.log(3 > 2);
+      console.log(4 >= 3);
+      console.log(2 < 1);
+      console.log(5 <= 7);
+
+      console.log("==", 2 == 3);
+      console.log("==", 2 == "2"); // 값이 같으면 true (타입 변환이 발생)
+      console.log("!=", 2 != 3); // true
+      console.log("!=", 2 != "2"); // false
+      // == 동등, != 부등 -> 값이 일치하는지 평가 / 타입 변환을 발생
+
+      console.log("===", 2 === 3);
+      console.log("===", 2 === "2"); // false -> 타입이 다르기 때문
+      console.log("!==", 2 !== 3); // true
+      console.log("!==", 2 !== "2"); // true -> 타입이 다르기 때문에
+      // === 일치, !== 불일치 -> 값과 타입을 비교 / 타입 변환이 발생 X
+
+      // 숫자
+      // 정수 실수외의 특수값
+      console.log("Infinity", 1 / 0);
+      console.log("-Infinity", -1 / 0);
+      console.log(typeof Infinity);
+
+      console.log("e", 3e10); // 3*(10^10)
+      console.log("e", 2e-5); // 2*(10^-5)
+
+      console.log("NaN(Not a Number)", NaN);
+      console.log(typeof NaN);
+      console.log("2" / "Hello");
+      console.log(+"True");
+
+      // 메서드
+      // 문자를 숫자로
+      console.log(parseInt("234"));
+      console.log(parseInt("234.6"));
+      console.log(parseFloat("234.6"));
+      console.log(parseInt("110", 2)); // 110을 2진수로 처리 -> 10진수의 정수로 변환
+
+      // 숫자를 문자로
+      const numString = 10;
+      console.log(numString.toString());
+      console.log((3).toString());
+      // 괄호로 감싸주어야 하는 이유 -> .을 소수점으로 인식하기 때문
+
+      console.log((2.3).toString());
+      console.log(NaN.toString());
+
+      // 소수점 이하의 자릿
+      const number = 23.512;
+      console.log(number.toFixed()); // 반올림
+      console.log(number.toFixed(1)); // 소수점 첫번쨰까지 반올림
+      console.log(typeof number.toFixed(1)); // 문자열을 반환
+      // 결과를 숫자를 사용하고 싶다(문자를 숫자로 변환) -> parseInt, parseFloat
+
+      // NaN
+      console.log("2 == 3", 2 == 3); // 값 비교
+      console.log("2 == 2", 2 == 2); // true
+
+      console.log("2 === 3", 2 === 3); // 값과 타입을 비교
+
+      console.log("NaN == NaN", NaN == NaN); // false
+      console.log("NaN === NaN", NaN === NaN); // false
+      // 자바스크립트에서 유일하게 자기 자신과도 동등하거나 일치하지 않는 값
+
+      console.log(isNaN(2)); // NaN가 아니라면 false
+      console.log(isNaN(2 * "Hello")); // NaN -> true
+      console.log(isNaN("Hello")); // true
+      // isNaN은 형변환이 발생 -> Hello 문자열을 숫자로 변환
+      // isNaN("Hello") -> isNaN(NaN) -> true
+
+      // isNaN 숫자로 형 변환을 한 후 NaN인지를 판단
+      console.log(Number.isNaN("Hello")); // false
+      // 형 변환 없이 NaN인지를 판단 -> 명확한 비교가 가능
+      console.log(Number.isNaN(NaN)); // true
+      console.log(Number.isNaN("weniv" * 100)); // true
+
+      // 두 값의 일치를 확인
+      console.log(Object.is(2 * "Hello", NaN)); // true
+      // Object.is도 형 변환이 발생X
+
+      console.log("====== Math 객체 ======");
+      console.log("Math.PI", Math.PI); // 원주율
+
+      console.log("반올림(3.6)", Math.round(3.6)); // 4
+      console.log("반올림(3.4)", Math.round(3.4)); // 3
+      console.log("올림(2.4)", Math.ceil(2.4)); // 3
+      console.log("내림(4.8)", Math.floor(4.8)); // 4
+
+      console.log("2**3", Math.pow(2, 3)); // 지수 연산으로 대체
+      console.log("제곱근", Math.sqrt(25));
+      console.log("제곱근 -> 지수 연산으로", 16 ** 0.5);
+      console.log("절댓값", Math.abs(-5));
+
+      console.log("난수", Math.random()); // 0<=x<1
+      console.log(
+        "0보다 크고 11 보다 작은 랜덤 숫자",
+        Math.floor(Math.random() * 11)
+      ); //0 <= x < 10(정수형);
+
+      console.log("=== BIGINT ===");
+      // 안전하게 표현가능한 숫자를 벗어나는 큰 숫자를 표현
+      let bigInt = 1259042n;
+      console.log(bigInt);
+      console.log(typeof bigInt);
+      // console.log(bigInt * 5); // 연산 불가
+      console.log(bigInt * BigInt(5));
+
+      // Number.MAX_SAFE_INTEGER 안정성이 보장
+      const Max_BigInt = BigInt(Number.MAX_SAFE_INTEGER + 4);
+      console.log(Max_BigInt);
+      console.log(BigInt("9007199254740995"));
+
+      console.log("\n\n\n\n\n\n\n\n\n");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 변수명 작성 규칙
+      // 변수 선언: 변수키워드 변수이름
+
+      // 1. 변수이름은 문자, 숫자, 특수문자(_, $)
+      let name123$_;
+      // let name?;
+
+      // 2. 숫자로 시작할 수는 없다
+      let name12;
+      //let 12name;
+      let $_score;
+
+      // 3. 예약어들은 사용할 수 없다.
+      // const var;
+
+      // 4. 자바스크립트는 대소문자를 구분
+      let name, NAME, Name;
+      name = "name";
+      NAME = "NAME";
+      Name = "Name";
+      console.log(name, NAME, Name);
+      let VAR = "VAR";
+      console.log(VAR);
+
+      // 변수명 작성 관습 -> 코딩 컨벤션
+      // 1. 변수나 함수의 이름은 카멜케이스(camelCase)
+      // 사용자의 이름
+      let userName;
+      let user_name; //snake_case
+
+      // 2. 비공개 속성이나 함수 내부의 변수 (외부에 공개, private)
+      let _private;
+
+      // 3. 클래스 이름은 파스칼케이스(PascalCase)
+      // 사용자의 정보
+      class UserInfo
+    </script>
+  </body>
+</html>

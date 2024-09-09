@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 변수 키워드 var let const
+      // 1. var: 변경가능한 변수를 선언
+      var name = "경현";
+      name = "하티"; // 재할당
+      console.log(name);
+
+      // 재선언이 가능
+      var name = "시운";
+      console.log(name); // ?
+
+      age = 30; // var를 이용해서 선언한 것처럼 동작 (엄격모드에서는 동작X)
+
+      // ES6 - let, const 키워드가 도입
+      // 2. let
+      let company = "위니브";
+      company = "이스트";
+      console.log(company);
+
+      // 재선언이 불가
+      // let company = "이스트";
+
+      // 3. const (상수)
+      const gender = "F"; // 선언과 동시에 할당
+      gender = "M"; // 재할당 불가
+
+      // const gender = "M"; // 재선언 불가
+
+      // 어떤 키워드?
+      // let, const
+      // 변경이 필요 없다 -> const / 변경이 필요 하다 -> let
+    </script>
+  </body>
+</html>

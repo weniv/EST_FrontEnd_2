@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 원시타입
+      let name = "weniv";
+      console.log(name[0]);
+
+      name[0] = "k"; //keniv
+      console.log(name); // 변경되지 않음(불변성)
+
+      // 문자열
+      // 'weniv', '경현'
+      let str1 = "문자열1";
+      let str2 = "문자열2";
+      let str3 = `문자열3`;
+
+      // I'm ㅇㅇ.
+      str1 = "I'm HATI";
+      // 문자열은 작은따옴표(''), 큰따옴표(""),백틱(``)으로 둘러싼 일련의 문자를 가르킵니다.
+      str1 =
+        "문자열은 작은따옴표(''), 큰따옴표(\"\"),백틱(\`\`)으로 \n\t둘러싼 일련의 문자를 가르킵니다.";
+      console.log(str1);
+
+      console.log(`이 문자에서
+      줄바꿈을 표현할 수 있습니다.`);
+
+      // 자바스크립트 코드 삽입 가능
+      const name2 = "weniv";
+      let age = 20;
+      // 제 이름은 weniv이고 나이는 20입니다.
+      console.log("제 이름은 " + name2 + "이고 나이는 " + age + "입니다.");
+      console.log(`제 이름은 ${name2}이고 나이는 ${age + 2}입니다.`); // 표현식 삽입
+
+      // 문자열의 특징
+      console.log("\n------ 문자열의 특징 -------");
+      let text = "hello world";
+      console.log(text[0]);
+      console.log(text[4]);
+      console.log(text[5]);
+
+      // 길이
+      console.log(text.length);
+
+      // 더하기 연산 -> 문자열 연결
+      // 제 이름은 ㅇㅇ 입니다.
+      console.log(
+        "제 이름은 " + name2 + "입니다." === "제 이름은 weniv입니다."
+      );
+      // 피연산자 하나가 문자열이면 -> 문자열 연결로 처리(문자열로 형변환)
+      console.log("Hello" + 23); // Hello23
+
+      // 문자열 메서드
+
+      // indexOf
+      let text2 = "Hello World, Hello Weniv";
+      // "Hello"
+      console.log(text2.indexOf("Hello", 5)); // 13
+      console.log(text2.indexOf("hello")); // 값을 찾지 못했을 경우 -1
+
+      // lastIndexOf
+      console.log(text2.lastIndexOf("Hello")); // 13
+
+      // includes
+      console.log(text2.includes("Hello")); // true
+      console.log(text2.includes("hello")); // false
+
+      // match
+      // 정규표현식을 사용합니다.
+      console.log(text2.match(/[A-Z]/g)); // g 전체를 탐색
+
+      // replace
+      // 찾고자 하는 요소를 찾아 -> 다른 값으로 변경
+      console.log(text2.replace("Hello", "Hi")); // 원본 text2 변경X
+      // 원본 text2를 이용해서 대체한 문자열을 새롭게 반환
+      console.log(text2);
+      console.log(text2.replaceAll("Hello", "Hi")); // 전체
+      console.log(text2.replace(/Hello/g, "Hi")); // 정규표현식 g 플래그
+
+      // substring
+      const str = "Hello weniv!";
+      console.log("===== substring =====");
+      console.log(str.substring(6, 11)); // weniv
+      console.log(str.substring(6));
+
+      console.log(str.substring(-3)); // 음수 -> 0, str.substring(0)
+      console.log(str.substring(2, -5)); // str.substring(2, 0); -> str.substring(0, 2);
+      // 시작 인덱스가 종료 인덱스보다 크면 -> 둘을 바꿔서 계산
+
+      // slice
+      console.log("===== slice =====");
+
+      console.log(str.slice(6, 11)); // weniv
+      console.log(str.slice(-3)); // iv!
+      console.log(str.slice(5, 3)); // 빈문자열
+
+      // substr
+      console.log("===== substr =====");
+      console.log(str.substr(6, 3)); // 두 번째 인자로 길이
+      console.log(str.substr(-5)); // 길이를 생략하면 끝까지 반환
+
+      // split
+      console.log("===== split =====");
+      const number = "010-1234-1234";
+      console.log(number.split("-"));
+
+      console.log(number.split());
+      console.log(number.split(""));
+
+      console.log(number.split("", 5));
+
+      // 대소문자
+      console.log("Hello World".toLowerCase());
+      console.log("Hello World".toUpperCase());
+
+      // 반복
+      console.log("*".repeat(5));
+
+      // 공백 제거
+      const trimStr = "         licat  ";
+      console.log(trimStr.trim());
+      console.log(trimStr.trimStart());
+      console.log(trimStr.trimEnd());
+
+      // 자릿수 채우기
+      const month = "7";
+      console.log(month.padStart(2, "0") + "월");
+      console.log("12".padStart(2, "0"));
+
+      console.log(month.padEnd(2, "0"));
+
+      console.log("\n\n\n\n\n\n\n\n");
+    </script>
+  </body>
+</html>
