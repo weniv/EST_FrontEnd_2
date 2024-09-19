@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .modal {
+            display:none;
+            position:fixed;
+            width:500px;height:400px;
+            background-color:teal;
+            color:#fff;
+            border-radius:20px;
+            padding:30px;
+            left:50%;top:50%;
+            transform:translate(-50%, -50%);
+        }
+        .modal.open {
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="btn-open">OPEN MODAL</button>
+    <div class="modal">
+        MODAL LAYER
+        <button type="button" class="btn-close">X</button>
+    </div>
+
+    <script>
+        const btnOpen = document.querySelector('.btn-open')
+        const btnClose = document.querySelector('.btn-close')
+        const modal = document.querySelector('.modal')
+
+        btnOpen.addEventListener('click', () => {
+            modal.classList.add('open')
+        })
+        btnClose.addEventListener('click', () => {
+            modal.classList.remove('open')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TITLE</h1>
+    <img src="./images/bat.jpg" alt="bat illust">
+    <p class="msg">Hello BAT!</p>
+    <button type="button">BUTTON</button>
+
+    
+
+    <!-- 버튼을 클릭하면, p태그의 메세지가 h1의 컨텐츠 지정되도록 -->
+    <script>
+        const h1 = document.querySelector('h1')
+        const msg = document.querySelector('.msg')
+        const btn = document.querySelector('button')
+        const img = document.querySelector('img')
+
+        btn.addEventListener('click', () => {
+            h1.textContent = msg.textContent;
+        })
+
+        console.log(`img src:${img.src}, img alt : ${img.alt}`)
+
+        // 이미지를 클릭하면, 이미지의 alt값이 h1의 컨텐츠로 지정되도록 
+        img.addEventListener('click', (e)=> {
+           h1.textContent =  e.target.alt
+        })
+
+    </script>
+    
+</body>
+</html>

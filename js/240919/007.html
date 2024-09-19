@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .red { color:red }
+    </style>
+</head>
+<body>
+    <div class="box1" data-modal="a">BOX 1</div>
+    <div class="box2" data-modal="b">BOX 2</div>
+
+
+ 
+    
+    <script>
+        const box1 = document.querySelector('.box1');
+        const box2 = document.querySelector('.box2');
+        const list = [ 'dracular','berry','grape','apple']
+        const removeList = [ 'dracular', 'ghost']
+        box1.classList.add('apple','mango')
+        box1.classList.add(...list)
+        box2.classList.add(...list);
+        box2.classList.remove(...removeList)
+    
+        let count = 0;
+        box1.addEventListener('click', ()=> {
+            count++;
+            console.log(`count : ${count}`)
+            box1.classList.toggle('red', count < 10)
+        })
+
+        console.log(box1.dataset.modal)
+        console.log(box2.dataset.modal)
+     </script>
+    
+    
+</body>
+</html>

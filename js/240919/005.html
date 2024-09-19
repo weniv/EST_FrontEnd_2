@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color:red;
+            font-size:100px;
+            background-color:gold;
+        }
+    </style>
+</head>
+<body>
+    <button type="button" class="btn1">ADD</button>
+    <button type="button" class="btn2">REMOVE</button>
+    <button type="button" class="btn3">TOGGLE</button>
+
+    <h1>TITLE</h1>
+
+    <script>
+        const btn1 = document.querySelector('.btn1')
+        const btn2 = document.querySelector('.btn2')
+        const btn3 = document.querySelector('.btn3')
+        const h1 = document.querySelector('h1');
+
+        btn1.addEventListener('click', () => {
+            h1.classList.add('active')
+        })
+        btn2.addEventListener('click', () => {
+            h1.classList.remove('active')
+        })
+        btn3.addEventListener('click', () => {
+            h1.classList.toggle('active')
+        })
+    </script>
+</body>
+</html>

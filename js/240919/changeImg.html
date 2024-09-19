@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Change Image</h1>
+        <p class="view">
+            <img src="./images/cross.jpg" alt="cross">
+        </p>
+        <figure class="imgList">
+            <img src="./images/cross.jpg" alt="cross">
+            <img src="./images/witch.jpg" alt="witch">
+            <img src="./images/ghost.jpg" alt="ghost">
+            <img src="./images/bat.jpg" alt="bat">
+            <figcaption>You can select this images</figcaption>
+        </figure>
+    </div>
+
+    <script>
+        const imgList = document.querySelectorAll('.imgList img');
+        const view = document.querySelector('.view img');
+        const h1 = document.querySelector('h1')
+
+        imgList.forEach( img => {
+            img.addEventListener('click', () => {
+                view.src = img.src;
+                view.alt = img.alt;
+                h1.textContent = img.alt;
+            })
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blind { display:none; }
+    </style>
+</head>
+<body>
+    <div class=”wrap”>
+        <h1>
+            <a href=”#”>HOME</a>
+        </h1>
+        <ul>
+            <li>GHOST</li>
+            <li>DRACULAR</li>
+            <li id="ghost">
+                Horror Movie
+                <a href=”#”>view site</a>
+                <span class="blind">SPAN</span>
+                <span>SPAN TAG</span>
+            </li>
+        </ul>
+        <p>Hello</p>
+    </div> 
+
+    <ul class="list">
+        <li>APPLE</li>
+        <li>MANGO</li>
+        <li>BERRY</li>
+    </ul>
+    <script>
+        const fruits = [ 'apple','mango','banana'];
+        console.log(fruits[0], fruits[1], fruits[2]);
+
+        fruits.forEach( (fruit,i) => {
+            console.log(i, fruit)
+        })
+    </script> 
+</body>
+</html>

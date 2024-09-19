@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+</head>
+<body>
+    <div class="container">
+        <p class="msg">What's the next color?</p>
+        <button type="button" id="btn">Change color</button>
+    </div>
+
+    <script>
+        const body = document.body;
+        const btn = document.getElementById('btn');
+        // const p = document.getElementsByClassName('msg')[0];
+        const p = document.querySelector('.msg')
+
+        btn.addEventListener('click', () => {
+            let color = `rgb( ${random()}, ${random()}, ${random()})`;
+            body.style.backgroundColor = color;
+            p.innerHTML = `Current Color : ${color}`;
+        })
+
+        function random() {
+            return Math.floor((Math.random()*255));
+        }
+    </script>
+</body>
+</html>
