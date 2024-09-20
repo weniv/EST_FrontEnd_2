@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Count</h1>
+        <div class="count-container">
+            <button type="button" id="minus">-</button>
+            <span id="num">0</span>
+            <button type="button" id="plus" class="plus">+</button>
+        </div>
+    </div>
+
+    <script>
+        const btns = document.querySelectorAll('.count-container button');
+        const num = document.getElementById('num')
+        let count = 0;
+
+        btns.forEach( btn => {
+            btn.addEventListener('click', () => {
+                // 또는 여기서 버튼에 클래스를 주고 btn.classList.contains('plus')로 접근할수도 있다.
+                if(btn.id === 'plus') {
+                    count++;
+                } else {
+                    count--;
+                }
+
+                num.textContent = count
+            })
+        })
+    </script>
+</body>
+</html>

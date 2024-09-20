@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Radio button</h1>
+        <div class="chk-container">
+            <label><input type="radio" name="fruits" value="apple">apple</label>
+            <label><input type="radio" name="fruits" value="mango">mango</label>
+            <label><input type="radio" name="fruits" value="berry">berry</label>
+        </div>
+
+        <p id="msg">show result</p>
+        <button id="btn" type="button">Click </button>
+    </div>
+    
+ 
+    
+    <script>
+        const btn = document.getElementById('btn');
+        const chkBox = document.querySelectorAll('input[name="fruits"]'); 
+
+        btn.addEventListener('click', printMsg ); 
+
+        function printMsg() { 
+            msg.textContent = `checked value is : ${getFruit()}`;
+        }
+
+        function getFruit() {   
+            for( item of chkBox) {
+                if(item.checked) {
+                    return item.value;
+                } 
+            }   
+        } 
+
+
+    </script>
+</body>
+</html>

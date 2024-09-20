@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red { color:red;}
+    </style>
+</head>
+<body>
+    <h1>Element</h1>
+    <ul class="foodList"></ul>
+    <script>
+        const foodList = document.querySelector('.foodList');
+        // 요소 생성
+        const li = document.createElement('LI')
+        li.textContent = `APPLE`; 
+
+        const span = document.createElement('SPAN');
+        span.className = 'red';
+        span.textContent = 'MANGO';    
+        
+        const img = document.createElement('IMG');
+        img.src= '../images/bat.jpg';
+        img.alt = 'Halloween bat';
+        
+
+        const strong = document.createElement('STRONG');
+        strong.textContent = 'STRONG TAG'
+
+        li.appendChild(span);
+        li.appendChild(img)
+        // <li>APPLE<span></span><img></li>
+        
+        li.insertBefore(strong, img);
+        foodList.appendChild(li);
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red { color:red;}
+    </style>
+</head>
+<body>
+    <h1>Element</h1>
+    <ul class="foodList">
+    </ul>
+    <button type="button" id="btn">LI 추가</button>
+    <script>
+        const foodList = document.querySelector('.foodList');
+        // 요소 생성
+
+        /* 버튼을 클릭할때마다 ul에 새로운 li 생성 */
+        btn.addEventListener('click',() => {
+
+            let li = document.createElement('LI')
+            li.textContent = `APPLE`; 
+     
+            foodList.appendChild(li);
+        })
+    </script>
+</body>
+</html>

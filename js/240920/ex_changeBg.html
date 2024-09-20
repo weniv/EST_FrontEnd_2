@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+  
+  </head>
+  <body>
+    <div class="container">
+      <h1>Change BODY color</h1>
+      <p id="msg">이전색상 : ?</p>
+      <input type="color" id="color">
+      <input type="text" id="input" name="color" placeholder="input color">
+      <button type="button" id="btn">CHANGE!</button> 
+    </div>
+    
+
+    <script>
+      const input = document.getElementById('input')
+      const btn = document.getElementById('btn') 
+      const color = document.getElementById('color')
+      let prevColor = '';
+
+      btn.addEventListener("click", changeColor );
+     
+      function changeColor() {
+        const curColor = input.value;
+        document.body.style.backgroundColor = curColor
+        msg.innerHTML = `<span style="background-color:${prevColor}">${prevColor}</span>, 지금색상 :  ${curColor}`
+        prevColor = curColor
+      }
+
+      color.addEventListener('change', function() {
+        input.value = this.value;
+      });
+    </script>
+  </body>
+</html>

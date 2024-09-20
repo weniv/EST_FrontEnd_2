@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    <!-- 폼요소 다루기 -->
+     <div class="container">
+         <input type="text" id="input">
+         <button type="button" id="btn">클릭</button>
+         <p id="msg"></p>
+     </div>
+    <script>
+        const btn = document.getElementById('btn');
+        const input = document.getElementById('input'); 
+        const msg = document.getElementById('msg'); 
+
+        btn.addEventListener('click' , () => {
+            msg.textContent = input.value; // print
+            input.value = ''; // reset
+        }) 
+    </script>
+</body>
+</html>

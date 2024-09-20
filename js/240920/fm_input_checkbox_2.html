@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Checkbox</h1>
+        <div class="chk-container">
+            <label><input type="checkbox" name="fruits" value="apple">apple</label>
+            <label><input type="checkbox" name="fruits" value="mango">mango</label>
+            <label><input type="checkbox" name="fruits" value="berry">berry</label>
+        </div>
+
+        <p id="msg">show result</p>
+        <button id="btn" type="button">Click </button>
+    </div>
+    
+ 
+    
+    <script>
+        const btn = document.getElementById('btn');
+        const chkBox = document.querySelectorAll('input[name="fruits"]');
+        let fruits = []
+
+        btn.addEventListener('click', printMsg ); 
+
+        function printMsg() {
+            msg.textContent = `checked values are : ${getFruits()}`;
+        }
+
+        function getFruits() { 
+            fruits = [];
+            for( item of chkBox) {
+                if(item.checked) fruits.push(item.value);
+            } 
+            // console.log(fruits)
+            return fruits;
+        } 
+
+
+    </script>
+</body>
+</html>

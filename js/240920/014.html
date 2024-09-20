@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn-delete {
+            background-color:red; color:#fff; width:30px;height:30px;border-radius:50%;border:none;
+            cursor:pointer;
+            transition:0.4s;
+        }
+
+        .btn-delete:hover {
+            opacity:0.7;
+        }
+    </style>
+</head>
+<body>
+    <form name="myForm">
+        <input type="text" name="food">
+        <button type="submit">+ADD</button>
+    </form>
+    <ul class="foodList"></ul>
+
+    <script>
+        const fm = document.forms.myForm;
+        const foodList = document.querySelector('.foodList')
+
+        fm.addEventListener('submit', printList) 
+
+        function printList(e) {
+            e.preventDefault();
+            let li = document.createElement('LI');
+            let btn = document.createElement('BUTTON');
+            let food = fm.food.value; // 입력된 과일값을 얻어오기
+
+            li.textContent = food;
+            btn.setAttribute('type','button');
+            btn.className = 'btn-delete';
+            btn.textContent = 'X';
+
+            const deleteBtns = document.querySelectorAll('.btn-delete');
+            deleteBtns.forEach( btn => {
+                btn.addEventListener('click', function() {
+                    console.log(this)
+                })
+            })
+
+            li.appendChild(btn);
+            foodList.appendChild(li);
+            // <li>과일이름 <button type="button" class="btn-delete">X</button></li>
+        }
+    </script>
+</body>
+</html>

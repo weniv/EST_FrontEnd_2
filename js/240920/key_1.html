@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    <div class="container">
+        <p id="msg"></p>
+    </div>
+    <script>
+        const body = document.body;
+        const msg = document.querySelector('#msg');
+
+        body.addEventListener('keydown', (e) => {
+            msg.textContent = `
+                code : ${e.code},
+                key : ${e.key}
+            `
+        })
+    </script>
+</body>
+</html>

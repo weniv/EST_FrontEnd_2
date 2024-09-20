@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Select box</h1>
+        <select id="fruits">
+            <option value="apple">사과</option>
+            <option value="mango">망고</option>
+            <option value="berry">베리</option>
+        </select>
+
+        <p id="msg">show result</p>
+        <button id="btn" type="button">Click </button>
+    </div>
+    
+ 
+    
+    <script>
+        const btn = document.getElementById('btn');
+        const fruits = document.getElementById('fruits')
+  
+        btn.addEventListener('click', printMsg)
+        function printMsg() {
+            // msg.textContent = fruits.value
+            msg.textContent = fruits[fruits.selectedIndex].textContent; // or .value
+        }
+    </script>
+</body>
+</html>
