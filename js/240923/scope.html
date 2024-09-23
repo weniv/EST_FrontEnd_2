@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function myObj() {
+        //     this.age = 30;
+        // }
+        // myObj.prototype.getAge = function () {
+        //     return this.age;
+        // }
+
+        function myObj2() {
+            let age = 30;
+            function innerFunc() { }
+
+            innerFunc.prototype.getAge = function () {
+                return age;
+            }
+
+            innerFunc.prototype.setAge = function (x) {
+                age = age + x;
+            }
+
+            return innerFunc;
+        }
+
+
+        const myObj = myObj2(); // myObj === innerFunc
+        const obj = new myObj();
+        obj.getAge();
+    </script>
+</body>
+
+</html>

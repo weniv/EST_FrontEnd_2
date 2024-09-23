@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="menu-nav">
+        <ul>
+            <li><button type="button">버튼1</button></li>
+            <li><button type="button">버튼2</button></li>
+            <li><button type="button">버튼3</button></li>
+        </ul>
+    </nav>
+
+    <script>
+        const menu = document.querySelector('.menu-nav');
+        menu.addEventListener('click', (event) => {
+            console.log(this);
+        });
+    </script>
+</body>
+
+</html>
