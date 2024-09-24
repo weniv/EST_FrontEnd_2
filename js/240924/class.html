@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 이전의 생성자 함수 방식
+        // function Robot(name) {
+        //     this.name = name;
+        // }
+        // Robot.prototype.sayYourName = function () {
+        //     console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        // }
+
+        // 클래스 문법
+        class Robot {
+            // 클래스의 생성자 함수입니다. 하나의 클래스는 하나의 생성자만 정의할 수 있습니다.
+            // 그리고 생성자 함수는 new 키워드가 호출될 때 자동으로 실행됩니다.
+            constructor(name) {
+                this.name = name;
+            }
+
+            // 메소드를 정의합니다. 메소드는 클래스가 생성한 인스턴스를 통해 사용할 수 있습니다.
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
+
+        // function Me() {
+        //     this.name = '라이캣';
+        //     this.address = '제주도 제주시 인다 1길';
+        //     this.phoneNum = '010-0000-0000';
+        // }
+
+        // Me.prototype.canWalk = function () {
+        //     console.log('라이캣이 걷는다.');
+        // };
+        // Me.prototype.teaching = function (student) {
+        //     student.levelUp();
+        // };
+
+        class Me {
+            constructor() {
+                this.name = '라이캣';
+                this.address = '제주도 제주시 인다 1길';
+                this.phoneNum = '010-0000-0000';
+            }
+
+            canWalk() {
+                console.log('라이캣이 걷는다.');
+            };
+            teaching(student) {
+                student.levelUp();
+            };
+        }
+
+        const me = new Me();
+    </script>
+</body>
+
+</html>

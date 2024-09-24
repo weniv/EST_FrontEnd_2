@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function Me() {
+            this.name = '라이캣';
+            this.address = '제주도 제주시 인다 1길';
+            this.phoneNum = '010-0000-0000';
+        }
+
+        Me.prototype.canWalk = function () {
+            console.log('라이캣이 걷는다.');
+        };
+        Me.prototype.teaching = function (student) {
+            student.levelUp();
+        };
+
+        const me = new Me();
+        me.canWalk();
+
+
+        function FoodPicker(foodNames) {
+            this.menu = foodNames;
+        }
+
+        FoodPicker.prototype.sayMenu = function () {
+            console.log(`오늘의 메뉴는 ${this.menu[Math.floor(Math.random() * foodNames.length)]} 입니다.`);
+        }
+
+        const robot = new FoodPicker(['짜장면', '고기국수', '몸국']);
+        const robot1 = new FoodPicker(['짜장면', '고기국수', '몸국']);
+        const robot2 = new FoodPicker(['짜장면', '고기국수', '몸국']);
+        const robot3 = new FoodPicker(['짜장면', '고기국수', '몸국']);
+        const robot4 = new FoodPicker(['짜장면', '고기국수', '몸국']);
+        const robot5 = new FoodPicker(['짜장면', '고기국수', '몸국']);
+        const robot6 = new FoodPicker(['짜장면', '고기국수', '몸국']);
+        const robot7 = new FoodPicker(['짜장면', '고기국수', '몸국']);
+    </script>
+</body>
+
+</html>

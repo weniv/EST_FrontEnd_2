@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        function Test() { };
+
+        function Parent() {
+            this.name = '라이캣';
+        }
+        Parent.prototype.rename = function (name) {
+            this.name = name;
+        };
+        Parent.prototype.sayName = function () {
+            console.log(this.name);
+        };
+
+        function Child() {
+            Parent.call(this);
+        }
+        Child.prototype = Object.create(Parent.prototype, {
+            constructor: {
+                configurable: true,
+                enumerable: true,
+                value: Child
+            }
+        }
+        ); // 지정된 프로토타입 객체를 갖는 새 객체를 만듭니다.
+
+        Child.prototype.canWalk = function () {
+            console.log('now i can walk!!');
+        };
+
+        const child = new Child();
+    </script>
+</body>
+
+</html>
