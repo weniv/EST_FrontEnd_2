@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class UserStorage {
+            searchUser(userName, password, onSuccess, onError) {
+                const requestObj = new XMLHttpRequest();
+                requestObj.open('GET', 'users.json');
+                requestObj.onreadystatechange = () => {
+                    if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                        const userList = JSON.parse(requestObj.responseText);
+                        const user = userList.user.find((item) => {
+                            return item.userName === userName && item.password === password
+                        });
+
+                        if (user) {
+                            onSuccess(user.userName);
+                        } else {
+                            onError(new Error('no user data'));
+                        }
+                    }
+                }
+                requestObj.send();
+            }
+
+            sayHi(name) {
+                const requestObj = new XMLHttpRequest();
+                requestObj.open('GET', 'greetings.json');
+                requestObj.onreadystatechange = () => {
+                    if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                        const hiList = JSON.parse(requestObj.responseText);
+                        const userGreeting = hiList.greetings.find((item) => {
+                            return item.userName === name;
+                        });
+
+                        console.log(userGreeting);
+
+                        // if (userGreeting) {
+                        //     onSuccess(userGreeting);
+                        // } else {
+                        //     onError(new Error('no user greeing'));
+                        // }
+                    }
+                }
+                requestObj.send();
+            }
+        }
+
+        const userStorage = new UserStorage();
+
+        const userName = prompt('이름을 입력하세요');
+        const password = prompt('비밀번호를 입력하세요');
+
+        userStorage.searchUser(
+            userName,
+            password,
+            (name) => {
+                userStorage.sayHi(name);
+            }
+        );
+    </script>
+</body>
+
+</html>

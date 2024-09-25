@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Sausage {
+            constructor(el1, el2) {
+                this.inside1 = el1;
+                this.inside2 = el2;
+            }
+
+            taste() {
+                console.log(`${this.inside1} 과 ${this.inside2}의 맛이 납니다!`);
+            }
+        }
+
+        class FireSausage extends Sausage {
+            taste() {
+                console.log(`${this.inside1} 과 ${this.inside2}의 맛이 불맛과 함께 납니다!`);
+            }
+        }
+
+
+        const mySausage = new Sausage('소고기', '대파');
+
+        const myFireSausage = new FireSausage('양파', '마늘');
+
+
+        class Parent {
+            constructor() {
+                this.name = '재현'
+            }
+
+            sayName() {
+                console.log(this.name);
+            }
+        }
+
+        class Child extends Parent {
+            constructor() {
+                super();
+                this.myName = '소을';
+
+            }
+
+            sayName() {
+                console.log(this.name);
+            }
+
+
+            sayName(value) {
+                arguments
+                if (arguments.value === 1) {
+                    console.log(this.myName);
+                } else {
+                    console.log(this.name);
+                }
+            }
+
+            sayName(value, value2) {
+                console.log(this.myName);
+            }
+
+        }
+
+        const child = new Child();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 간단한 투두 리스트기능 구현해보기
+        // 1. 해야할 일 Todo 클래스
+        // 2. Todo 클래스는 일의 내용, 일의 상태(끝났는지 아닌지) 두 가지 프로퍼티를 가집니다.
+        // 2. Todo 클래스는 상태를 변경하는 changeState 메서드를 가집니다.
+        // 3. 할일의 목록을 관리하는 관리자를 추상화한 TodoManager 클래스 (할일 목록을 프로퍼티로 가집니다.)
+        // 4. 할 일을 저장하고(addItem), 할 일의 목록을 보여주며(getItems), 할 일의 남은 갯수를 반환하는(getLeftTodoCount) 세 가지 메소드를 가집니다.
+
+        class Todo {
+            constructor(todo, isDone) {
+                this.todo = todo;
+                this.isDone = isDone;
+            }
+
+            changeState(todo) {
+                this.isDone = true;
+                return this.isDone;
+            }
+        }
+        class TodoManager {
+            constructor() {
+                this.items = [];
+                this.count = 0;
+            }
+            getItems() {
+                return this.items;
+            }
+            addItem(value) {
+                this.todo = new Todo(value, false);
+                this.items.push(this.todo.todo);
+
+            }
+            getLeftTodoCount() {
+
+                return this.items.reduce((total, currentItem) => currentItem.isDone === false ? ++total : total, 0);
+
+                this.items.forEach(item => {
+                    if (item.isDone === false) {
+                        this.count++;
+                    }
+                });
+                return this.count;
+            }
+        }
+    </script>
+</body>
+
+</html>

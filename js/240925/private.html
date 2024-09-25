@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Robot {
+
+            #password;
+
+            constructor(name, pw) {
+                this.name = name;
+                this.#password = pw;
+            }
+
+            sayYourName() {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+
+            get password() {
+                return this.#password;
+            }
+
+            set password(value) {
+                this.#password = value;
+            }
+        }
+
+        const bot = new Robot('알리봇', '1234');
+        console.log(bot.password);
+        bot.password = 5678;
+    </script>
+</body>
+
+</html>

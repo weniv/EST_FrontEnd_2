@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let result;
+        function xhrRequest() {
+
+            const requestObj = new XMLHttpRequest();
+            requestObj.open('GET', 'message.txt');
+            requestObj.onreadystatechange = () => {
+                if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                    result = requestObj.responseText;
+                    console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+                    const requestObj = new XMLHttpRequest();
+                    requestObj.open('GET', 'message.txt');
+                    requestObj.onreadystatechange = () => {
+                        if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                            result = requestObj.responseText;
+                            console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+                            const requestObj = new XMLHttpRequest();
+                            requestObj.open('GET', 'message.txt');
+                            requestObj.onreadystatechange = () => {
+                                if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                                    result = requestObj.responseText;
+                                    console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+                                    const requestObj = new XMLHttpRequest();
+                                    requestObj.open('GET', 'message.txt');
+                                    requestObj.onreadystatechange = () => {
+                                        if (requestObj.readyState === 4 && requestObj.status === 200) {
+
+                                            result = requestObj.responseText;
+                                            console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+                                        }
+                                    };
+                                    requestObj.send();
+                                }
+                            };
+                            requestObj.send();
+                        }
+                    };
+                    requestObj.send();
+                }
+            };
+            requestObj.send();
+        }
+
+        xhrRequest();
+        console.log(result); // 콘솔에 무엇이 찍히는지 확인해봅시다.
+    </script>
+</body>
+
+</html>
