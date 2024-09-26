@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class UserStorage {
+            searchUser(userName, password) {
+
+                return fetch('users.json')
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP ERROR : ${response.status}`);
+                        }
+
+                        return response.json();
+                    })
+                    .then((datas) => {
+                        const user = datas.user.find((item) => {
+                            return item.userName === userName && item.password === password
+                        });
+
+                        if (user) {
+                            return user.userName;
+                        } else {
+                            throw new Error(`일치하는 유저가 없습니다.`);
+                        }
+                    })
+                    .catch((error) => {
+                        throw error
+                    });
+            }
+
+            sayHi(name) {
+                return fetch('greetings.json')
+                    .then((response) => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP ERROR : ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then((datas) => {
+                        const userGreeting = datas.greetings.find((item) => {
+                            return item.userName === name;
+                        });
+
+                        if (userGreeting) {
+                            return userGreeting
+                        } else {
+                            throw new Error(`인사말이 없습니다!`);
+                        }
+                    })
+                    .catch((error) => {
+                        throw error
+                    });
+            }
+        }
+
+        const userStorage = new UserStorage();
+
+        const userName = prompt('이름을 입력하세요');
+        const password = prompt('비밀번호를 입력하세요');
+
+        userStorage.searchUser(userName, password)
+            .then((result) => userStorage.sayHi(result))
+            .then((greetingData) => alert(`${greetingData.userName}이 당신에게 인사합니다! ${greetingData.greetings}`))
+            .catch((error) => {
+                console.error(error);
+            });
+
+        // userStorage.searchUser(
+        //     userName,
+        //     password,
+        //     (name) => {
+        //         userStorage.sayHi(
+        //             name,
+        //             (greetingData) => {
+        //                 alert(`${greetingData.userName}이 당신에게 인사합니다! ${greetingData.greetings}`);
+        //             },
+        //             (error) => {
+        //                 console.error(error);
+        //             }
+        //         );
+        //     },
+        //     (error) => {
+        //         console.error(error);
+        //     }
+        // );
+    </script>
+</body>
+
+</html>

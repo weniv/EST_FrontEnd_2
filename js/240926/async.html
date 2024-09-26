@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function message() {
+            const hello = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('hello');
+                }, 100)
+            })
+
+            const world = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('world');
+                }, 100)
+            })
+
+            console.log(`${hello} ${world}`);
+        }
+
+        function message() {
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve('hello');
+                }, 100)
+            }).then((result) => {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve(result + ' world');
+                    }, 100)
+                })
+            }).then((finalResult) => {
+                console.log(finalResult);
+            });
+        }
+
+        message();
+    </script>
+</body>
+
+</html>
