@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+
+    <script>
+        const target = document.querySelector('div');
+        let position = 0;
+        let keyState = '';
+
+        document.addEventListener('keydown', move);
+        document.addEventListener('keyup', stop);
+
+        function move(event) {
+            keyState = event.key;
+        }
+
+        function stop() {
+            keyState = null;
+        }
+
+
+        function play() {
+
+            switch (keyState) {
+                case 'ArrowRight':
+                    position += 5;
+                    target.style.transform = `translate(${position}px)`;
+                    break;
+
+
+                case 'ArrowLeft':
+                    position -= 5;
+                    target.style.transform = `translate(${position}px)`;
+                    break;
+            }
+
+            requestAnimationFrame(play);
+        }
+        requestAnimationFrame(play);
+
+
+
+        // function move(event) {
+        //     console.log(event.key);
+
+        //     if (event.key === 'ArrowRight') {
+        //         position += 5;
+        //         target.style.transform = `translate(${position}px)`;
+        //     }
+
+        //     if (event.key === 'ArrowLeft') {
+        //         position -= 5;
+        //         target.style.transform = `translate(${position}px)`;
+        //     }
+        // }
+    </script>
+</body>
+
+</html>

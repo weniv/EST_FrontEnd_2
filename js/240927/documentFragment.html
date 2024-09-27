@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+
+    </main>
+
+    <script>
+        const main = document.querySelector('main');
+        const fragObj = document.createDocumentFragment();
+
+        for (let i = 0; i < 10; i++) {
+            const article = document.createElement('article');
+            article.classList.add('parent');
+            article.insertAdjacentHTML('afterbegin', `<figure>
+            <img class="figImg" src="https://miro.medium.com/v2/resize:fit:720/format:webp/1*nZaiJiMSPGsLGp9oiUoWsA.png"
+                alt="" />
+            <figcaption class="figCap">개리는 무엇을 먹을지 고민합니다.</figcaption>
+        </figure>`);
+
+            fragObj.append(article);
+            console.log(fragObj.childNodes);
+        }
+
+        console.log(fragObj.childNodes);
+
+    </script>
+</body>
+
+</html>
