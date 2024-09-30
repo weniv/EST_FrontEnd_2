@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+        label {
+            display: block;
+            margin: 10px;
+        }
+
+        input:invalid {
+            border: 3px solid red;
+        }
+
+        input:valid {
+            border: 3px solid teal;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="">'사과'를 입력해야합니다.</label>
+        <input type="text" pattern="사과">
+
+
+        <label for="">'사과'와 '배' 중 하나를 입력해야합니다.</label>
+        <input type="text" pattern="사과|배">
+
+
+        <!-- . 모든 숫자와 문자 -->
+        <label for="">모든 문자중에 세개를 입력해야합니다.</label>
+        <input type="text" pattern="...">
+
+        <!-- [] : 선택할 수 있는 문자의 종류를 지정합니다. -->
+        <label for="">첫번째 문자는 사,과,배 중에 하나를, 두번째 문자는 1,2,3 만 가능합니다.</label>
+        <input type="text" pattern="[사과배][123]">
+
+        <!-- [-] 선택할 수 있는 문자의 범위를 설정할 수 있습니다. -->
+        <label for="">한글만 입력이 가능합니다.</label>
+        <input type="text" pattern="[ㄱ-ㅎㅏ-ㅣ가-힣]">
+
+        <!-- [-] 선택할 수 있는 문자의 범위를 설정할 수 있습니다. -->
+        <label for="">한글과 숫자 입력이 제한없이 가능합니다.</label>
+        <input type="text" pattern="[ㄱ-ㅎㅏ-ㅣ가-힣0-9]*">
+
+        <!-- [-] 선택할 수 있는 문자의 범위를 설정할 수 있습니다. -->
+        <label for="">한글과 숫자 입력이 네글자 가능합니다.</label>
+        <input type="text" pattern="[ㄱ-ㅎㅏ-ㅣ가-힣0-9]{4}">
+
+        <label for="">주민등록 번호를 입력하세요.</label>
+        <input type="text" pattern="[0-9]{6}">
+        <input type="text" pattern="[0-9]{7}">
+
+
+        <label for="">폰 번호를 입력해주세요</label>
+        <input type="text" pattern="010|011|016">
+
+        <input type="text" pattern="0[1-9]|1[0-2]">
+
+        <button>제출</button>
+    </form>
+</body>
+
+</html>

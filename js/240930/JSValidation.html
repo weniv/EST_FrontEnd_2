@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input:invalid {
+            border: 3px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 이메일을 입력하는 인풋창을 만들고 폼을 제출했을 때 만약 이메일 양식에 어긋나면 ‘알맞는 양식의 이메일 주소를 입력하세요’ 메세지를 출력하도록 합니다. 양식이 올바르다면 제출하도록 만들어보세요. -->
+    <form>
+        <input type="email" required>
+        <button>제출</button>
+    </form>
+    <script>
+        const inp = document.querySelector('input');
+        const btn = document.querySelector('button');
+
+        btn.addEventListener('click', (event) => {
+            // event.preventDefault();
+            console.log(inp.validity);
+            if (inp.validity.typeMismatch) {
+                inp.setCustomValidity('알맞는 양식의 이메일 주소를 입력하세요');
+            } else if (inp.validity.valueMissing) {
+                inp.setCustomValidity('이메일 주소를 입력하셔야 합니다!');
+            } else {
+                inp.setCustomValidity('');
+            }
+        });
+
+
+        // const inp = document.querySelector('input');
+
+        // inp.addEventListener('input', () => {
+        //     console.log(inp.validity);
+
+        //     // 타입에 어긋난 값이 입력된 경우
+        //     if (inp.validity.typeMismatch) {
+        //         inp.setCustomValidity('알맞는 양식의 이메일 주소를 입력하세요');
+        //     } else {
+        //         inp.setCustomValidity('');
+        //     }
+        // });
+
+        // setCustomValidity
+
+    </script>
+</body>
+
+</html>

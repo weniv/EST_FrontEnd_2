@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let me = { age: 30 };
+        let you = me; // 2
+
+        me = null;
+        you = null;
+
+        let x = {
+            y: {
+                z: 1
+            }
+        };
+
+        // x가 참조하는 객체를 obj1, y가 참조하는 객체를 obj2라고 부릅니다.
+        let a = x; // obj1 : 2 (x, a)
+        x = 1; // obj1 : 1 (a)
+
+        let b = a.y; // obj2 : 2 (a.y, b)
+        a = 2; // obj1 : 0 
+
+        function outer() {
+            const privateVal = ['test'];
+
+            function inner() {
+                return privateVal;
+            }
+
+            return inner;
+        }
+
+        const getPrivate = outer();
+
+        const secretVal = getPrivate();
+
+        secretVal = null;
+
+    </script>
+</body>
+
+</html>

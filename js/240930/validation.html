@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* input에 입력된 값이 유효할 때 선택하는 선택자입니다. */
+        .text:valid {
+            background-color: teal;
+        }
+
+        /* input에 입력된 값이 유효하지 않을 때 선택하는 선택자입니다. */
+        .text:invalid {
+            background-color: red;
+        }
+
+        /* required : 해당 속성이 적용된 요소를 선택합니다.*/
+        label:has(.text:required)::after {
+            content: '필수';
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <!-- minlength, maxlength 텍스트의 데이터 길이 제한 -->
+
+        <label for="">
+            <input type="text" minlength="5" maxlength="10" class="text" required>
+        </label>
+        <!-- min, max 숫자의 크기를 제한 하는 속성 -->
+        <input type="number" min="5" max="20" step="3" required>
+
+
+
+        <button>제출</button>
+    </form>
+
+
+    <script>
+        // const inp = document.querySelector('input');
+        // inp.value = 'hellllllllooooooooo';
+    </script>
+</body>
+
+</html>
