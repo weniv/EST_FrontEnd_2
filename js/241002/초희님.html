@@ -1,0 +1,55 @@
+<body>
+    <!-- 사용자가 입력한 비밀번호를 벨리데이션하는 폼을 만들어 봅시다.
+input은 비밀번호, 비밀번호 확인 두 가지가 있어야하며
+
+이때 만약 
+1. input에 아무것도 입력하지 않았거나
+2. 비밀번호 input과 비밀번호 확인 input의 값이 동일하지 않거나,
+3. 비밀번호의 패턴이 정규표현식과 일치하지 않은 경우
+
+에러메시지를 출력하도록 만들어보세요 -->
+    <form action="">
+        <label for="password">비밀번호</label>
+        <input type="password" id="password" minlength="8" required />
+        <label for="checkedPassword">비밀번호 확인하기</label>
+        <input type="password" id="checkedPassword" required />
+        <button>제출</button>
+        <div id="result"></div>
+    </form>
+
+    <script>
+        function validatePw() {
+            const pw = document.getElementById("password");
+            const checkPw = document.getElementById("checkedPassword");
+            const result = document.getElementById("result");
+            const submit = document.querySelector("button");
+
+            let reg =
+                /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
+            console.log("비밀번호 유효성 검사: ", reg.test(pw.value));
+
+            if (reg.test(pw.value)) {
+                if (pw.value === checkPw.value) {
+                    console.log("비밀번호 일치 여부: ", pw.value === checkPw.value);
+                    result.innerHTML = "비밀번호가 일치하며, 유효합니다.";
+                    result.style.color = "green";
+                    submit.removeAttribute("disabled", true);
+                } else {
+                    result.innerHTML = "비밀번호가 일치하지않습니다.";
+                    result.style.color = "salmon";
+                    submit.setAttribute("disabled", true);
+                }
+            } else {
+                result.innerHTML =
+                    "비밀번호는 최소 8자에서 16자까지, 영문자, 숫자 및 특수문자를 포함하여주세요. ";
+                result.style.color = "salmon";
+                submit.setAttribute("disabled", true);
+            }
+        }
+
+        const form = document.querySelector("form");
+
+        form.addEventListener("input", validatePw);
+    </script>
+</body>

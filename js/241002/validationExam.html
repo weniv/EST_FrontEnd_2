@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 입력 필드 스타일 */
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        input+span {
+            display: block;
+        }
+
+        /* 에러 메시지 스타일 */
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 사용자가 입력한 비밀번호를 벨리데이션하는 폼을 만들어 봅시다.
+input은 비밀번호, 비밀번호 확인 두 가지가 있어야하며
+
+이때 만약 
+1. input에 아무것도 입력하지 않았거나
+2. 비밀번호 input과 비밀번호 확인 input의 값이 동일하지 않거나,
+3. 비밀번호의 패턴이 정규표현식과 일치하지 않은 경우
+
+에러메시지를 출력하도록 만들어보세요 -->
+    <!-- novalidate : 서밋 이벤트가 발생했을 때 브라우저의 기본 벨리데이션이 동작하지 않도록 설정합니다. -->
+    <form novalidate>
+        <label for="password">비밀번호:</label>
+        <!-- HTML의 autocomplete 속성은 웹 개발자가 사용자 에이전트(브라우저)가 폼 필드 값을 자동으로 채워주도록 하며, 해당 필드에 기대되는 값에 대한 정보를 브라우저에 제공할 수 있도록 합니다. -->
+        <input type="password" id="password" name="password" required autocomplete="new-password">
+        <!-- new-password: 새로운 비밀번호를 입력해야하는 인풋 필드에 이 속성을 사용해야 합니다. 브라우저가 기존 비밀번호를 실수로 자동으로 입력하는 것을 방지합니다. -->
+        <span class="error-message"></span>
+
+        <label for="confirmPassword">비밀번호 확인:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required autocomplete="new-password">
+        <span class="error-message"></span>
+
+        <button type="submit">제출</button>
+    </form>
+
+    <script>
+        // 1. 경우에 따른 메세지를 등록할겁니다. 2. 에러메세지를 출력합니다.
+
+        const passwordForm = document.querySelector('form');
+
+        passwordForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // 인풋요소 선택
+            const password = passwordForm.querySelector('#password');
+            const confirmPassword = passwordForm.querySelector('#confirmPassword');
+
+            // 에러 메세지 출력 요소 선택
+            const passwordError = passwordForm.querySelector('#password+span');
+            const confirmPasswordError = passwordForm.querySelector('#confirmPassword+span');
+
+            // 초기화
+            password.setCustomValidity('');
+            confirmPassword.setCustomValidity('');
+            passwordError.textContent = '';
+            confirmPasswordError.textContent = '';
+
+            const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+            // 비밀번호를 입력하지 않은 경우
+            if (!password.value) {
+                password.setCustomValidity('비밀번호를 입력해주세요');
+                // 비밀번호를 입력했지만 패턴과 일치하지 않은 경우
+            } else if (!passwordPattern.test(password.value)) {
+                password.setCustomValidity('비밀번호는 최소 8자 이상이며, 대문자, 소문자, 숫자, 특수문자가 포함되어야합니다.');
+            }
+
+
+            // 비밀번호확인창을 입력하지 않은 경우
+            if (!confirmPassword.value) {
+                confirmPassword.setCustomValidity('비밀번호 확인을 입력해주세요');
+                // 비밀번호확인창에 입력했지만 첫번째 비밀번호와 일치하지 않은 경우
+            } else if (password.value !== confirmPassword.value) {
+                confirmPassword.setCustomValidity('비밀번호가 일치하지 않습니다.');
+            }
+
+
+            // 메세지를 출력합니다.
+            if (!password.checkValidity()) {
+                passwordError.textContent = password.validationMessage;
+            }
+
+            if (!confirmPassword.checkValidity()) {
+                confirmPasswordError.textContent = confirmPassword.validationMessage;
+            }
+
+            // 폼의 내용을 제출합니다.
+            if (password.checkValidity() && confirmPassword.checkValidity()) {
+                event.target.submit();
+            }
+        });
+    </script>
+</body>
+
+</html>

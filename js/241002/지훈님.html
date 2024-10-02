@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 가입</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip-path: inset(50%);
+            border: 0;
+            clip: rect(0 0 0 0);
+        }
+
+        article {
+            padding-left: 16rem;
+            padding-right: 16rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            /* row-gap: 1rem; */
+        }
+
+        .inputContainer {
+            position: relative;
+        }
+
+        form input {
+            width: 100%;
+
+            height: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            width: 100%;
+
+            height: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .errorMsg {
+            display: none;
+            position: absolute;
+            font-size: smaller;
+            color: crimson;
+            top: 2rem;
+            background-color: #ffffff72;
+        }
+    </style>
+</head>
+
+<body>
+    <article>
+        <h2>회원 가입</h2>
+        <form action="">
+            <label class="sr-only" for="username">아이디</label>
+            <div class="inputContainer">
+                <input required type="text" name="username" id="username" placeholder="아이디" />
+                <div class="errorMsg errorId"></div>
+            </div>
+            <div class="inputContainer">
+                <label class="sr-only" for="password">비밀번호</label>
+
+                <input required type="password" name="password" id="password" minlength="8" placeholder="비밀번호" />
+                <div class="errorMsg errorPw1"></div>
+            </div>
+            <div class="inputContainer">
+                <label class="sr-only" for="passwordCheck">비밀번호 확인</label>
+                <input required type="password" name="passwordCheck" id="passwordCheck" minlength="8"
+                    placeholder="비밀번호 확인" />
+                <div class="errorMsg errorPw2"></div>
+            </div>
+
+            <input type="submit" value="회원 가입" />
+            <button>회원 가입</button>
+
+        </form>
+
+        <script>
+            const form = document.querySelector("form");
+            const input = document.querySelectorAll("input");
+            const submitBtn = document.querySelector("input[type='submit']");
+
+            const id = document.querySelector("#username");
+            const pw1 = document.querySelector("#password");
+            const pw2 = document.querySelector("#passwordCheck");
+
+            const errorMsg = document.querySelectorAll(".errorMsg");
+            const errorId = document.querySelector(".errorId");
+            const errorPw1 = document.querySelector(".errorPw1");
+            const errorPw2 = document.querySelector(".errorPw2");
+
+            const patterns =
+                /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+
+            function validation() {
+                let isValid = false;
+
+                const test = patterns.test(pw1.value);
+
+                if (!test) {
+                    errorPw1.style.display = "block";
+                    errorPw1.textContent = "비밀번호가 조건에 맞지 않습니다!";
+                    isValid = false;
+                }
+
+                if (!id.value) {
+                    errorId.style.display = "block";
+                    errorId.textContent = "아이디를 입력하십시오.";
+                    isValid = false;
+                }
+
+                if (!pw1.validity.valid) {
+                    errorPw1.style.display = "block";
+                    if (!pw1.value) {
+                        errorPw1.textContent = "비밀번호를 입력하십시오.";
+                    }
+
+                    if (pw1.validity.tooShort) {
+                        errorPw1.textContent = "비밀번호가 너무 짧습니다.";
+                    }
+                    isValid = false;
+                }
+                if (!pw2.validity.valid) {
+                    errorPw2.style.display = "block";
+                    if (!pw2.value) {
+                        errorPw2.textContent = "비밀번호를 확인하십시오.";
+                    }
+                    if (pw2.validity.tooShort) {
+                        errorPw2.textContent = "비밀번호가 너무 짧습니다.";
+                    }
+                    isValid = false;
+                }
+
+                if (pw1.value != pw2.value) {
+                    errorPw2.style.display = "block";
+                    errorPw2.textContent = "비밀번호가 일치하지 않습니다.";
+                    isValid = false;
+                }
+
+                return isValid;
+            }
+
+            submitBtn.addEventListener("click", (e) => {
+                e.preventDefault();
+                errorMsg.forEach((element) => {
+                    element.style.display = "none";
+                });
+
+                const result = validation();
+
+                if (result) {
+                    form.submit();
+                }
+            });
+        </script>
+    </article>
+</body>
+
+</html>

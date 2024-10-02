@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas width="500" height="500"></canvas>
+
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        // 클래스를 이용해 공 객체를 생성해봅시다!
+        class Ball {
+            constructor(xPos, yPos) {
+                this.xPos = xPos;
+                this.yPos = yPos;
+                this.radius = 30;
+            }
+
+            drawBall() {
+                ctx.beginPath();
+                ctx.arc(this.xPos, this.yPos, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'teal';
+                ctx.fill();
+            }
+
+            moveBall() {
+                this.xPos += 1;
+                this.yPos += 1;
+            }
+
+        }
+
+        const ball1 = new Ball(100, 100);
+
+
+        const ball2 = new Ball(200, 200);
+
+
+        const ball3 = new Ball(100, 300);
+
+
+
+        function play() {
+            ctx.clearRect(0, 0, 500, 500);
+
+            ball1.drawBall();
+            ball1.moveBall();
+
+            ball2.drawBall();
+            ball2.moveBall();
+
+            ball3.drawBall();
+            ball3.moveBall();
+
+            requestAnimationFrame(play);
+        }
+
+        requestAnimationFrame(play);
+    </script>
+</body>
+
+</html>

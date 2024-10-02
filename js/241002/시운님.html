@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <style>
+        form {
+            border: 1px solid #bdbdbd;
+            padding: 20px;
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        label {
+            font-weight: 700;
+        }
+
+        input:user-invalid {
+            border: 1px solid red;
+        }
+
+        input:user-valid {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="">
+            비밀번호
+            <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" required
+                placeholder="Password" id="PASS1" />
+        </label>
+        <label for="">
+            비밀번호 확인
+            <input type="password" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" require
+                placeholder="Password" id="PASS2" />
+        </label>
+        <button>제출하기</button>
+    </form>
+
+    <script>
+        const pass = document.getElementById("PASS1");
+        const passcheck = document.getElementById("PASS2");
+        const btn = document.querySelector("button");
+
+        btn.addEventListener("click", (event) => {
+            if (pass.validity.patternMismatch) {
+                pass.setCustomValidity(
+                    "최소 8자 최대 16자 의 영문,숫자,특수문자가 포함되어야 합니다."
+                );
+            } else {
+                pass.setCustomValidity("");
+            }
+
+            if (pass.value !== passcheck.value) {
+                passcheck.setCustomValidity("비밀번호가 서로 일치하지 않습니다");
+            } else {
+                passcheck.setCustomValidity("");
+            }
+        });
+    </script>
+</body>
+
+</html>
