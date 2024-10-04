@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cute Pizza Warm</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+
+        #canvasBg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvasBg" width="300" height="300"></canvas>
+    <canvas id="canvas" width="300" height="300"></canvas>
+    <script src="tile.js"></script>
+    <script src="pizza.js"></script>
+    <script src="worm.js"></script>
+
+    <script>
+        // 캔버스 설정
+        const canvas = document.querySelector('#canvas');
+        const ctx = canvas.getContext('2d');
+        const cWidth = canvas.width;
+        const cHeight = canvas.height;
+
+        // 배경설정
+        const canvasBg = document.querySelector('#canvasBg');
+        const ctxBg = canvasBg.getContext('2d');
+
+
+        // 게임화면에서 객체의 위치 정보를 위해 사용할 타일 설정. 계산하기 쉽도록 10x10 의 크기로 설정합니다.
+        const tileSize = 10;
+        // 게임판에 깔릴 가로와 세로 타일 갯수
+        const tileWidth = cWidth / tileSize;
+        const tileHeight = cHeight / tileSize;
+
+        // 점수 초기화
+        let score = 0;
+
+
+        // 점수를 그리는 함수
+        const renderScore = () => {
+            ctx.font = '20px Helvetica';
+            ctx.fillStyle = "black";
+            ctx.fillText(`SCORE : ${score}`, 0, 30);
+            // 폰트를 다운받아 사용하고 싶다면 여기를 참고(https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/font#loading_fonts_with_the_css_font_loading_api)
+        }
+
+        // Gameover를 그리는 함수
+        const renderGameOver = () => {
+            cancelAnimationFrame(playId);
+            ctx.font = '30px Helvetica';
+            ctx.fillStyle = "red";
+            ctx.textBaseline = "middle"; //좌표에 따른 글씨의 수직 기준점을 설정합니다. 기본값은 bottom 입니다. top, middle, bottom
+            ctx.textAlign = 'center'; //좌표에 따른 글씨의 수평 기준점을 설정합니다. 기본값은 start 입니다.(언어에 따른 시작 위치를 기준으로 합니다.) left, center, right
+            ctx.fillText(`GAME OVER`, cWidth / 2, cHeight / 2);
+        }
+
+
+
+        // 여기부터는 worm.js 클래스 작성 이후에 작성 할것. pizza 클래스는 가장 나중에
+        const worm = new Worm();
+        const pizza = new Pizza();
+
+        // 방향키 이벤트 리스너
+        document.body.addEventListener('keydown', (event) => {
+            if (event.key === "ArrowUp" || event.key === "ArrowDown" || event.key === "ArrowLeft" || event.key === "ArrowRight") {
+                worm.checkDirection(event.key);
+            }
+        })
+
+
+        // 게임 러너
+        let playId // 게임을 정지하기 위해 애니메이션의 ID를 저장합니다.
+
+        const playGame = () => {
+            // setTimeout : 지정된 시간 이후에 코드를 실행합니다.
+            setTimeout(() => {
+
+                // requestAnimationFrame 함수가 가장 앞에 있어야 게임이 종료됩니다.
+                // 그 이유는 만약 requestAnimationFrame함수가 나중에 실행된다면 moveWorm 함수가 실행되어 호출되는 cancelAnimationFrame의 키 값과 일치하지 않기 때문입니다.
+                playId = requestAnimationFrame(playGame);
+
+                ctx.clearRect(0, 0, cWidth, cHeight);
+                renderScore();
+                worm.moveWorm();
+                worm.renderWorm();
+
+                pizza.renderPizza();
+            }, 100);
+        }
+
+        requestAnimationFrame(playGame);
+    </script>
+</body>
+
+</html>

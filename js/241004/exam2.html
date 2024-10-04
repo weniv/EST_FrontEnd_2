@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const users = [
+            {
+                id: 1,
+                name: "재현",
+                isActive: true,
+                age: 20,
+            },
+            {
+                id: 2,
+                name: "호준",
+                isActive: true,
+                age: 18,
+            },
+            {
+                id: 3,
+                name: "유진",
+                isActive: false,
+                age: 30,
+            },
+        ];
+        // 1. 주어진 사용자 배열에서 이름 배열을 얻는 코드를 작성하세요
+        // 2. 활성화된 사용자만 가져오세요
+        // 3. 사용자를 나이 내림차순으로 정렬하세요
+
+        let names = [];
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].isActive) {
+                names.push(users[i].name);
+            }
+        }
+
+        console.log(names);
+
+
+        const sortedUsers = [...users];
+
+        for (let i = 0; i < sortedUsers.length; i++) {
+            for (let j = 0; j < sortedUsers.length; j++) {
+                if (sortedUsers[i].age < sortedUsers[i + 1].age) {
+
+                };
+            }
+        }
+    </script>
+</body>
+
+</html>
