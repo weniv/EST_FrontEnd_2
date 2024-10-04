@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 8자 이상인 모든 단어를 노란색으로 강조하기. 마크업에서 단락 텍스트 중 8자 이상인 모든 단어를 강조 표시하세요 (예를 들어 노란색 배경으로) -->
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum delectus porro, laboriosam ad aspernatur
+        praesentium. Vero fugiat cupiditate velit nobis aperiam voluptatibus error laboriosam in consequuntur assumenda
+        veniam pariatur rerum enim laborum nihil odio quo labore, tenetur iure? Perspiciatis ut quasi quas et provident
+        quidem aspernatur quaerat reprehenderit, deleniti suscipit similique at dolorum quam in repellat architecto
+        dolorem error? Eius in aut cupiditate ipsa quasi debitis et molestiae, quos officia nemo quisquam tempore
+        similique reprehenderit dignissimos consectetur quibusdam expedita. Delectus nesciunt adipisci optio officia
+        inventore tempore quas qui earum ducimus porro unde architecto est, natus doloribus at et eius. Odit.</p>
+
+    <script>
+        const paragraph = document.querySelector('p');
+        paragraph.innerHTML = paragraph.textContent.split(' ').map((item) =>
+            item.length >= 8 ? `<strong class="highlight">${item}</strong>` : item
+        ).join(' ');
+    </script>
+</body>
+
+</html>

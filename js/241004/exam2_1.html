@@ -33,28 +33,17 @@
         // 2. 활성화된 사용자만 가져오세요
         // 3. 사용자를 나이 내림차순으로 정렬하세요
 
-        const sortedUsers = [...users];
+        const names = users.map((user) => {
+            return user.name
+        });
 
-        for (let i = 0; i < sortedUsers.length - 1; i++) {
-            for (let j = 0; j < sortedUsers.length - 1; j++) {
-                if (sortedUsers[j].age < sortedUsers[j + 1].age) {
-                    let temp = sortedUsers[j];
-                    sortedUsers[j] = sortedUsers[j + 1];
-                    sortedUsers[j + 1] = temp;
-                };
-            }
-        }
+        const isActiveObj = users.filter((user) => {
+            return user.isActive;
+        });
 
-        console.log(sortedUsers);
+        const result = users.filter(user => user.isActive).map(user => user.name);
 
-        let names = [];
-        for (let i = 0; i < sortedUsers.length; i++) {
-            if (sortedUsers[i].isActive) {
-                names.push(sortedUsers[i].name);
-            }
-        }
-
-        console.log(names);
+        const finalResult = [...users].sort((a, b) => b.age - a.age).filter(user => user.isActive).map(user => user.name);
 
     </script>
 </body>

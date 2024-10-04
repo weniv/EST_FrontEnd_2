@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function add(x, y, z) {
+        //     return x + y + z;
+        // }
+
+        // add(1, 2, 3); // 6
+
+        // function curriedAdd(x) {
+        //     return function (y) {
+        //         return function (z) {
+        //             return x + y + z;
+        //         }
+        //     }
+        // }
+
+        // console.log(curriedAdd(1)(2)(3));
+
+        // const curriedAdd2 = x => y => z => x + y + z;
+
+        // console.log(curriedAdd2(3)(2)(1));
+
+
+        // 서버로부터 status 값을 받을때, 값에 따라서 에러메세지를 다르게 반환하는 함수를 만든다면?
+
+        // const log = (level) => {
+        //     return (message) => {
+        //         console.error(`${level}: ${message}`);
+        //     }
+        // }
+
+        // const msgGood = log('200');
+        // const msgServer = log('500');
+        // const msgClient = log('400');
+
+        // msgGood('서버와의 통신이 잘 끝났습니다!!');
+        // msgServer('서버에서 문제가 발생했습니다!!');
+        // msgClient('클라이언트에 문제가 있습니다.');
+
+        // curry 함수는 다중인자를 받는 함수 fn 을 인자로 받습니다.
+        const curry = (fn) => {
+            // curried함수는 인자를 누적해서 필요한 인자수에 도달하면 fn 함수를 실행합니다.
+            const curried = (...args) => {
+                // fn.length : fn 함수가 필요로 하는 인자의 개수
+                console.log('fn.length: ', fn.length);
+                console.log('args.length: ', args.length);
+                return args.length >= fn.length
+                    // 필요한 모든 인자가 전달되었을 경우
+                    ? fn(...args) :
+                    // 아직 필요한 인자가 부족한 경우. 재귀함수를 통해서 인자수를 계속 증가 시킵니다.
+                    (...otherArgs) => curried(...args, ...otherArgs);
+            }
+            return curried;
+        }
+
+
+        // function add(x, y, z) {
+        //     return x + y + z;
+        // };
+
+        // const curriedAdd = curry(add);
+
+        // console.log(curriedAdd(1)(2)(3));
+
+        // 여러 개의 상품에 대해 할인 가격을 계산해야 합니다. 할인율은 동일하지만 상품의 원래 가격은 각각 다릅니다. 커링 함수를 이용하여 할인율을 미리 적용한 함수를 생성하고, 이를 사용하여 각 상품의 할인 가격을 계산하세요. 할인율이 10%인 경우에 대한 함수 생성, 할인율이 20%인 경우에 대한 함수 생성.
+
+        const price = [100, 200, 400, 600];
+        function calcDiscountPrice(saleRate, price) {
+            return price - price * saleRate;
+        }
+
+        // 커링된 가격 할인 함수
+        const curriedCalcDiscountPrice = curry(calcDiscountPrice);
+
+        // 할인율이 20%인 경우 함수 생성
+        const calc20PercentDiscount = curriedCalcDiscountPrice(0.2);
+
+        // 할인율이 30%인 경우 함수 생성
+        const calc30PercentDiscount = curriedCalcDiscountPrice(0.3);
+
+        // 할인율이 40%인 경우 함수 생성
+        const calc40PercentDiscount = curriedCalcDiscountPrice(0.4);
+
+
+        console.log(price.map(calc20PercentDiscount));
+    </script>
+</body>
+
+</html>
