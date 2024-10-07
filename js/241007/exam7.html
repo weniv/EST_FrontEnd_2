@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 프로미스를 반환하는 함수 두 개가 있습니다.
+        // 두 함수에서 반환되는 데이터를 하나로 합친 배열로 반환해주세요. 
+        // [
+        //     { id: 1, name: '재현', address: 'Deongneung-ro 10-gil' },
+        //     { id: 2, name: '호준', address: 'Inda 1-gil' },
+        //     { id: 3, name: '원범', address: '58, Banpo-daero, Seocho-gu' }
+        // ]
+
+        const users = [
+            { id: 1, name: '재현' },
+            { id: 2, name: '호준' },
+            { id: 3, name: '원범' },
+        ];
+
+        const userAddresses = [
+            { id: 1, address: 'Deongneung-ro 10-gil' },
+            { id: 2, address: 'Inda 1-gil' },
+            { id: 3, address: '58, Banpo-daero, Seocho-gu' },
+        ];
+
+        const getUsers = () => {
+            return new Promise(resolve => {
+                resolve(users);
+            });
+        }
+
+        const getUserAddresses = () => {
+            return new Promise(resolve => {
+                resolve(userAddresses);
+            });
+        }
+
+        // getUsers()
+        //     .then((users) => {
+        //         return getUserAddresses().then((userAddresses) => {
+        //             const mergedResult = users.map((user) => {
+        //                 const mappedAddress = userAddresses.find((address) => {
+        //                     return address.id === user.id
+        //                 });
+
+        //                 return { ...user, ...mappedAddress };
+        //             });
+        //             return mergedResult
+        //         });
+        //     }).then((result) => {
+        //         console.log(result);
+        //         return result;
+        //     })
+        //     .catch((error) => {
+        //         console.error(error);
+        //     });
+
+
+        // Promise.all([getUsers(), getUserAddresses()])
+        //     .then(([users, addresses]) => {
+        //         const mergedResult = users.map((user) => {
+        //             const mappedAddress = addresses.find((address) => {
+        //                 return address.id === user.id
+        //             });
+
+        //             return { ...user, ...mappedAddress };
+        //         });
+
+        //         return mergedResult;
+        //     }).then((result) => {
+        //         console.log(result);
+        //         return result;
+        //     }).catch((error) => {
+        //         console.error(error);
+        //     });
+        (async () => {
+            try {
+                const [users, addresses] = await Promise.all([getUsers(), getUserAddresses()]);
+
+                const mergedResult = users.map((user) => {
+                    const mappedAddress = addresses.find((address) => {
+                        return address.id === user.id
+                    });
+
+                    return { ...user, ...mappedAddress };
+                });
+
+                console.log(mergedResult);
+            } catch (error) {
+                console.error(error);
+            }
+
+        })();
+
+    </script>
+</body>
+
+</html>

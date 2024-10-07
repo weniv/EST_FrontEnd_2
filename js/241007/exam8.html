@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 두 개의 데이터를 비교해서 같은지 다른지 확인하는 함수를 만들어주세요. 같다면 true, 다르다면 false를 반환합니다. 비교 데이터에는 원시자료형과 일반 객체, 배열이 포함됩니다.
+
+        function compareEqual(a, b) {
+            // 원시자료형과 그 외 자료형의 비교
+            if (typeof a !== typeof b) {
+                return false;
+            }
+
+            // 원시 자료형의 비교
+            if (a === b) {
+                return true;
+            }
+
+            // 배열을 포함한 객체의 비교
+            if (typeof a === 'object') {
+                if (a.constructor !== b.constructor) {
+                    return false;
+                }
+
+                if (Array.isArray(a)) {
+                    if (a.length !== b.length) {
+                        return false;
+                    }
+
+                    for (let i = 0; i < a.length; i++) {
+                        if (!compareEqual(a[i], b[i])) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+
+
+                const keysA = Object.keys(a);
+                const keysB = Object.keys(b);
+
+                if (keysA.length !== keysB.length) {
+                    return false;
+                }
+
+                for (let key of keysA) {
+                    // 객체 키의 비교
+                    if (!b.hasOwnProperty(key)) {
+                        return false;
+                    }
+
+                    // 객체의 값의 비교 
+                    if (!compareEqual(a[key], b[key])) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 사용자는 url 혹은 이메일 주소를 입력할 수 있습니다.
+사용자가 입력한 텍스트에서 특정 패턴을 찾아, 해당 단어에 알맞는 앵커 링크를 추가하고, 이 링크를 클릭하면 관련  기능이 직동하도록 구현하세요.
+
+입력 패턴은 아래와 같습니다.
+urlPattern = /(https?:\/\/[^\s]+)/;
+emailPattern = /([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})/; -->
+    <input type="text">
+    <button>변환하기</button>
+    <div class="result"></div>
+
+    <script>
+        const urlPattern = /(https?:\/\/[^\s]+)/,
+            emailPattern = /([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})/,
+            input = document.querySelector('input'),
+            btn = document.querySelector('button'),
+            result = document.querySelector('.result');
+
+        btn.addEventListener('click', () => {
+            const userInput = input.value;
+
+            let convertedTxt = userInput.replace(urlPattern, (url) => {
+                return `<a href=${url}>${url}로 이동합니다.</a>`
+            });
+
+            convertedTxt = userInput.replace(emailPattern, (email) => {
+                return `<a href="mailto:${email}">${email}로 메일을 보냅니다.</a>`
+            });
+
+            result.innerHTML = convertedTxt;
+        });
+
+    </script>
+</body>
+
+</html>
