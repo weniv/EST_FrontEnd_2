@@ -1,0 +1,38 @@
+body {
+  background-color: royalblue;
+  font-size: 13px;
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+h1 {
+  font-size: 28px;
+  color: #222;
+  background-color: royalblue;
+}
+
+p {
+  font-size: 13px;
+  color: #222;
+  background-color: royalblue;
+}
+
+.test1 {
+  font-size: 12px;
+}
+
+.test2 {
+  background-image: url(photo_03.png) no-repeat;
+}
+
+.test1 {
+  font-weight: 500;
+}
+
+.info {
+  font-size: 15px;
+  line-height: 1.34;
+  text-align: right;
+}
+.info span {
+  line-height: 1.34;
+}/*# sourceMappingURL=style.css.map */

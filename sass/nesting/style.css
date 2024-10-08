@@ -1,0 +1,115 @@
+@charset "UTF-8";
+.container {
+  display: inline-block;
+  font-size: 30px;
+  background-image: url("./assets/arrow-right-solid.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 14px 14px;
+}
+.container #navigation {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.container #navigation li {
+  background-color: blue;
+}
+.container #navigation a {
+  text-decoration: none;
+  color: teal;
+}
+.container #navigation a:hover {
+  background-color: red;
+}
+
+ul li:hover {
+  background: white;
+  cursor: pointer;
+}
+ul li:last-child {
+  border-bottom: 2px solid black;
+}
+
+.state .alert {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+}
+.state .alert-success {
+  background-color: aqua;
+  color: teal;
+}
+.state .alert-warning {
+  background-color: yellow;
+  color: red;
+}
+
+.article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.article .article-content {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+i {
+  opacity: 0.5;
+}
+
+.wrapper {
+  background-color: #fff;
+  padding: 20px;
+}
+@media (max-width: 700px) {
+  .wrapper .inner-wrapper {
+    font-size: 14px;
+  }
+  .wrapper .inner-wrapper .active {
+    font-size: 14px;
+  }
+  .mobile-only {
+    display: block;
+  }
+}
+
+/*다음 CSS 코드를 Sass로 변환하세요. nesting을 사용하여 코드를 구조화하세요.*/
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container .row {
+  display: flex;
+  flex-wrap: wrap;
+}
+.container .row .col {
+  flex: 1;
+  padding: 15px;
+}
+.container .row .col .content {
+  background-color: #f1f1f1;
+  padding: 20px;
+}/*# sourceMappingURL=style.css.map */

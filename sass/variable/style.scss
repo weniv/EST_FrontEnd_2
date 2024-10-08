@@ -1,0 +1,151 @@
+//색상
+$red: #ee4444;
+$black: #222;
+$bg-color: royalblue;
+$link-color : red;
+$p-color : #282A36;
+
+//폰트사이즈
+$font-p : 13px;
+$font-h1 : 28px;
+
+//폰트
+$base-font : 'Noto Sans KR',
+sans-serif;
+
+$base-font-size: 16px;
+$base-line-height: 1.5;
+$padding: $base-font-size * 0.5;
+
+@debug "패딩값은! #{$padding}";
+
+// Strings
+$font-family: sans-sarif;
+$content: hello + $font-family;
+
+@debug "content! #{$content}";
+
+body {
+    background-color: $bg-color;
+    font-size: $font-p;
+    font-family: $base-font;
+}
+
+h1 {
+    font-size: $font-h1;
+    color: $black;
+    background-color: $bg-color;
+}
+
+p {
+    font-size: $font-p;
+    color: $black;
+    background-color: $bg-color;
+}
+
+
+
+$font-size : 10px 12px 16px; //폰트사이즈 리스트
+$image-file : photo_01,
+photo_02,
+photo_03; //이미지 파일명 리스트
+
+// 아래와 같이 사용합니다.
+.test1 {
+    font-size: nth($font-size, 2);
+}
+
+@debug "배열의 값은!  #{nth($font-size, 2)}";
+
+.test2 {
+    background-image: url(nth($image-file, -1)+'.png') no-repeat;
+}
+
+
+//sass 공식문서
+$font-weights: (
+    "regular": 400,
+    "medium": 500,
+    "bold": 700
+); //글자 굵기 리스트
+
+//아래와 같은 형태로 사용
+@debug #{map-get($font-weights, "medium")}; // 500
+@debug #{"null??: "+map-get($font-weights, "extra-bold")}; // null
+
+.test1 {
+    font-weight: map-get($font-weights, "medium"); // 500
+}
+
+
+// append
+$numbers : 1px 2px 3px;
+$new-numbers: append($numbers, 4px);
+
+@debug "numbers: #{$numbers}";
+@debug "new-numbers: #{$new-numbers}";
+
+
+// index
+@debug "index: #{index($new-numbers, 2px)}";
+
+// length
+@debug length($numbers);
+
+// join
+$list1: 1px 2px;
+$list2: 2px 3px 4px;
+$joinedList : join($list1, $list2, comma);
+@debug $joinedList;
+
+
+
+
+$colors :(mainColor: red,
+    secondColor: green,
+    thirdColor: blue);
+
+$values: map-values($colors);
+
+//has-key
+$values2: map-has-key($colors, hello);
+
+@debug $values2;
+
+// map-remove
+$removed-colors : map-remove($colors, mainColor);
+@debug $removed-colors;
+@debug $colors;
+
+$removed-colors2 : map-remove($colors, mainColor, thirdColor);
+@debug $removed-colors2;
+
+
+
+$colors2 :(mainColor: red,
+    secondColor: green,
+    thirdColor: blue);
+
+$colors3 :(mainColor2: red,
+    secondColor2: green,
+    thirdColor2: blue);
+
+// map-merge
+
+$colors4 : map-merge($colors2, $colors3);
+@debug $colors4;
+
+
+
+.info {
+    $line-normal : 1.34; // 지역변수
+    font-size: 15px;
+    line-height: $line-normal;
+    text-align: right;
+
+    span {
+        line-height: $line-normal;
+    }
+}
+
+@debug $line-normal;

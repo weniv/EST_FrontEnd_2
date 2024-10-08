@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setTimeout(() => {
+            console.log('function2');
+        }, 0);
+
+        Promise.resolve().then(() => {
+            console.log('function3');
+        });
+
+        console.log('function1');
+
+        // callStack
+
+        function first() {
+            console.log('first start');
+            second();
+            console.log('first end');
+        }
+
+        function second() {
+            console.log('second start');
+            third();
+            console.log('second end');
+        }
+
+        function third() {
+            console.log('third start');
+            console.log('third end');
+        }
+
+        first();
+    </script>
+</body>
+
+</html>
