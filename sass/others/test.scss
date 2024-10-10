@@ -1,0 +1,20 @@
+// 문제: 컬럼 수와 브레이크포인트를 매개변수로 받아 반응형 그리드 시스템을 생성하는 믹스인을 만드세요.
+@mixin responsive-grid($columns: 12, $breakpoints: (sm: 576px, md: 768px, lg: 992px, xl: 1200px)) {
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @each $breakpoints, $vWidth in $breakpoints {
+        @media (min-width: $vWidth) {
+            @for $i from 1 through $columns {
+                .col-#{$breakpoints}-#{$i} {
+                    width: percentage(1/$columns) * $i;
+                }
+            }
+        }
+    }
+}
+
+@include responsive-grid

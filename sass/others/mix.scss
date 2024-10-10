@@ -1,0 +1,41 @@
+$red: red;
+$blue: blue;
+$result : mix($red, $blue, 50%);
+
+.mixed {
+    background-color: $result;
+}
+
+
+
+$values: 10px 20px 5px 9px 1px;
+
+$maxValue : min($values...);
+
+@debug $maxValue;
+
+
+
+$px-value: 16cm;
+$em-value: 3px;
+
+$isComparable : comparable($px-value, $em-value);
+@debug $isComparable;
+
+
+$origin: "hello";
+$inserted : str-insert($origin, " world", 6);
+@debug $inserted;
+
+
+$global-val: 'hello';
+
+@mixin test {
+    $local-val: 'world';
+    @debug variable-exists(global-val);
+    @debug variable-exists(local-val);
+}
+
+.test {
+    @include test
+}

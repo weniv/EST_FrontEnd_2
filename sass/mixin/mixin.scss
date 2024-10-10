@@ -1,0 +1,122 @@
+// scss를 사용
+
+@mixin center-xy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    color: black;
+    transition: 1s;
+}
+
+.card {
+    @include center-xy; // 정의한 center-xy mixin을 사용하여 코드 한줄이면 끝!
+    background: gray;
+}
+
+.aside {
+    @include center-xy;
+    background: white;
+}
+
+
+// @mixin image-style($url, $size, $repeat, $positionX, $positionY) {
+//     background-image: url($url);
+//     background-size: $size;
+//     background-repeat: $repeat;
+//     background-position: $positionX $positionY;
+// }
+
+// //background관련 스타일 코드가 들어있다.
+// //mixin의 인수에 따라 조금씩 다른 스타일링이 가능하다.
+// .profile {
+//     @include image-style("./assets/user.jpg", cover, no-repeat, center, center);
+// }
+
+// .box-one {
+//     @include image-style("/images/poster1.svg", cover, no-repeat, 40%, 50%);
+// }
+
+
+
+// 위에 코드를 가져와서 기본값을 설정해주었다.
+@mixin image-style($url, $size, $repeat, $positionX : 50%, $positionY : 50%) {
+    background-image: url($url);
+    background-size: $size;
+    background-repeat: $repeat;
+    background-position: $positionX $positionY;
+}
+
+//background관련 스타일 코드가 들어있다.
+//mixin의 인수에 따라 조금씩 다른 스타일링이 가능하다.
+.profile {
+    @include image-style("./assets/user.jpg", cover, no-repeat);
+}
+
+.profile-1 {
+    @include image-style("./assets/user.jpg", cover, no-repeat, 30%);
+}
+
+.profile-2 {
+    @include image-style("./assets/user.jpg", cover, no-repeat, 30%, 30%);
+}
+
+// profile과 .box-one은 서로 관계가 없지만, 코드가 중복되기때문에 mixin을 만들어서 
+// 각 요소에서 사용합니다.
+
+
+
+
+@mixin sample {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @content;
+}
+
+.one {
+    @include sample {
+        color: white;
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    background-color: red;
+}
+
+
+
+$url: './assets/img/';
+
+@mixin thumb($total, $img, $type) {
+    @for $i from 1 through $total {
+        li:nth-child(#{$i}) .thumb {
+            background-image:url(#{$url} + #{$img} + #{$i} + '.' + #{$type});
+        }
+    }
+}
+
+@include thumb(10, 'background', 'png');
+
+@mixin circleBase {
+    display: block;
+    border-radius: 50%;
+    -ms-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
+@mixin circle($size, $color: null) {
+    @include circleBase;
+    width: $size;
+    height: $size;
+    background-color: $color;
+}
+
+.profile {
+    @include circle(100px);
+}
+
+// 믹스인은 각각의 특정 기능이나 스타일이 서로 연관성이 있어야합니다.
+// 믹스인은 명확하고 의미를 가지는 이름이 있어야 합니다.
+// 과도한 사용은 자제해야한다. 단순 스타일은 그냥 단순하게 쓰면됩니다.
+// 믹스인 SCSS 문서안에서 쓸때, 민스인에 대한 설명을 주석으로 공유해주세요. 

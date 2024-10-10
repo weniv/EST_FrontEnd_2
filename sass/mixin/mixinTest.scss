@@ -1,0 +1,41 @@
+// 문제 : 화면 크기와 방향을 모두 고려하는 미디어 쿼리 믹스인을 만들고, 이를 사용하여 .responsive-element 클래스에 다양한 스타일을 적용하세요. 미디어 쿼리의 조건 식에 사용되는 속성은 min-width, max-width, orientation 입니다.
+
+// 사용 모습: 
+// .responsive-element {
+//     font-size: 16px;
+//     @include responsive-styles(600px, 900px, landscape) {
+//         font-size: 18px;
+//          ... 미디어 쿼리 조건에 따른 속성들
+//     }
+// }
+
+
+@mixin responsive-styles($min-width, $max-width, $orientation) {
+    @media (min-width: $min-width) and (max-width: $max-width) and (orientation: $orientation) {
+        @content
+    }
+}
+
+
+.responsive-element {
+    font-size: 16px;
+    padding: 10px;
+
+    @include responsive-styles(600px, 900px, landscape) {
+        font-size: 18px;
+        padding: 15px;
+        background-color: red;
+    }
+
+    @include responsive-styles(901px, 1200px, portrait) {
+        font-size: 25px;
+        padding: 20px;
+        background-color: hotpink;
+    }
+
+    @include responsive-styles(1201px, auto, landscape) {
+        font-size: 30px;
+        padding: 25px;
+        background-color: lightgreen;
+    }
+}

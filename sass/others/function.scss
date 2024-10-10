@@ -1,0 +1,17 @@
+// Scss - function
+// Sass 공식문서
+// 거듭제곱을 구하는 함수
+@function pow($base, $exponent) {
+    $result: 1;
+
+    @for $_ from 1 through $exponent {
+        $result: $result * $base;
+    }
+
+    @return $result;
+}
+
+.sidebar {
+    float: left;
+    margin-left: pow(4, 3) * 1px;
+}

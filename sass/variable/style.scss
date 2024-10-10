@@ -149,3 +149,13 @@ $colors4 : map-merge($colors2, $colors3);
 }
 
 @debug $line-normal;
+
+
+$breakpoint: (
+    small: 600px,
+    medium: 800px
+);
+$breakpoints: (
+    small: map-get($breakpoint, small),
+    large: 900px
+);

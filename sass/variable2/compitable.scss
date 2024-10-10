@@ -1,0 +1,36 @@
+//Sass 공식문서
+
+// @debug 100px>10s;
+// Error: Incompatible units px and s
+
+// @debug 100>50px; // true
+// @debug 10px < 17; // true
+// Not Error
+
+// 호환되는 단위들
+// px, in, cm, mm ==> 길이
+
+// s, ms ==> 시간
+
+// deg, turn ==> 각도
+
+// rgba(), #ffffff, hsl()
+
+
+// 호환이 안되는 것들
+
+// 길이 < 시간, 각도 < 시간 ==> 다른 차원의 단위는 비교 불가
+
+// 100% < 50px ==> 상대 단위와 절대 단위 비교 불가능. 
+// vh, vw < px, cm , mm, pt ==> 비교 불가능
+
+// @debug (5px, 7px, 10px) !=(5px, 7px, 10px); // true
+// @debug (5px 7px 10px) !=[5px 7px 10px]; // true
+// @debug (5px 7px 10px)==(5px 7px 10px); // true
+
+
+//Sass 공식문서
+@debug 10s+15s; // 25s
+@debug 1in - 10px; // 0.8958333333in
+@debug 5px * 3; // error 공식문서에는 15px*px 이라고 나옵니다. 3cm * 3cm ==> 3cm2
+@debug 1in % 9px; // 0.0625in (1in == 96px)
