@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <form action="" method="get">
+        <input type="number" name="최저가">
+        <input type="number" name="최고가">
+        <input type="submit" value="검색">
+    </form>
+    <script>
+        // 실제로는 fetch로 서버에 데이터를 요청합니다.
+        // 지금은 데이터를 하드코딩하겠습니다.
+        const data = [
+            { 상품명: '노트북', 최저가: 200, 최고가: 200 },
+            { 상품명: '데스크탑', 최저가: 200, 최고가: 300 },
+            { 상품명: '모니터', 최저가: 30, 최고가: 150 },
+            { 상품명: '키보드', 최저가: 4, 최고가: 50 },
+            { 상품명: '마우스', 최저가: 2, 최고가: 20 },
+        ]
+
+        // 검색어를 가져옵니다.
+        console.log(location.search);
+        const searchParams = new URLSearchParams(location.search);
+        const searchMinPrice = parseInt(searchParams.get('최저가'));
+        const searchMaxPrice = parseInt(searchParams.get('최고가'));
+
+        const body = document.querySelector('body');
+        const ul = document.createElement('ul');
+        ul.appendChild(document.createElement('li')).textContent = `최저가: ${searchMinPrice}`;
+        ul.appendChild(document.createElement('li')).textContent = `최고가: ${searchMaxPrice}`;
+        
+
+        // 최저가와 최고가 사이에 있는 상품만 출력합니다.
+        for (const product of data) {
+            if (searchMinPrice <= product.최저가 && product.최고가 <= searchMaxPrice) {
+                const li = document.createElement('li');
+                li.textContent = product.상품명;
+                ul.appendChild(li);
+            }
+        }
+
+        body.appendChild(ul);
+
+        // 아래 백업용 코드를 사용해서 실제 검색된 데이터를 html 요소로 만들어서 출력해보세요.
+
+        /* 
+        아래 코드를 실습할 예정입니다. 백업용 코드입니다.
+
+        const url = new URL(
+        'https://www.example.com/path/to/page?key1=value1&key2=value2#section',
+        );
+        
+        console.log(url.protocol); // "https:"
+        console.log(url.hostname); // "www.example.com"
+        console.log(url.pathname); // "/path/to/page"
+        console.log(url.search); // "?key1=value1&key2=value2"
+        console.log(url.hash); // "#section"
+
+        const params = new URLSearchParams({ keyword: 'keyring' });
+
+        from urllib.parse import urlparse
+
+        url = 'https://www.example.com/path/to/page?key1=value1&key2=value2#section'
+        parsed_url = urlparse(url)
+        
+        print(parsed_url.scheme)  # "https"
+        print(parsed_url.netloc)  # "www.example.com"
+        print(parsed_url.path)    # "/path/to/page"
+        print(parsed_url.query)   # "key1=value1&key2=value2"
+        print(parsed_url.fragment)# "section"
+
+        */
+    </script>
+</body>
+</html>
