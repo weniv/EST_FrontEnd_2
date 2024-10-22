@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <style>
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .completed {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+    1. 입력창과 추가 버튼이 있어야 합니다.
+    2. 할 일 목록이 표시되어야 합니다.
+    3. 각 할 일 항목에는 삭제 버튼과 완료 체크박스가 있어야 합니다.
+    4. 입력창에 텍스트를 입력하고 추가 버튼을 클릭하면 새로운 할 일이 목록에 추가됩니다.
+    5. 체크박스를 클릭하면 해당 할 일에 취소선이 그어집니다.
+    6. 삭제 버튼을 클릭하면 해당 할 일이 목록에서 제거됩니다.
+ -->
+    <div class="container">
+        <h1>Todo List</h1>
+        <div class="input-section">
+            <input type="text" id="todoInput" placeholder="할 일을 입력하세요">
+            <button id="addBtn">추가</button>
+        </div>
+        <ul id="todoList">
+        </ul>
+    </div>
+
+    <script>
+        $(function () {
+
+            // 할일 추가 함수
+            function addTodo() {
+                const todoText = $('#todoInput')[0].value.trim();
+
+                const todoHtml = `
+                    <li class="todo-item">
+                        <input type="checkbox" />
+                        <strong>${todoText}</strong>
+                        <button class="btn-del">삭제</button>
+                    </li>
+                `;
+
+                $('#todoList').append(todoHtml);
+                $('#todoInput')[0].value = '';
+            }
+
+
+            $('#addBtn').click(addTodo);
+
+
+            $('#todoList').click(function (event) {
+                const $target = $(event.target);
+
+                // target이 checkbox 인 경우
+                if ($target.is('input[type="checkbox"]')) {
+                    $target.next().toggleClass('completed');
+                }
+
+                // target이 button 인 경우
+                if ($target.is('.btn-del')) {
+                    $target.parent().remove();
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

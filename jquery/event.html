@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            opacity: 0.3;
+            background-color: red;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+
+<body>
+
+    <button type="button" id="btn_ani">클릭해주세요!</button>
+    <div id="box">hello</div>
+
+    <script>
+        //hover - 색 변경하기(호버 되었을 때 yellow, 호버에서 벗어났을 때 blue)
+        $("#box").hover(function () {
+            $(this).css("background-color", "yellow");
+        }, function () {
+            $(this).css("background-color", "blue");
+        });
+    </script>
+</body>
+
+</html>
