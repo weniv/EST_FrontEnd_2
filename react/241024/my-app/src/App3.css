@@ -1,0 +1,28 @@
+App5.css .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    display: block;
+    width: 300px;
+    height: 60px;
+    margin: 5px;
+    border: none;
+}
+
+button:hover {
+    background-color: skyblue;
+}
+
+.displayWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 200px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
