@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .target {
+            width: 50px;
+            height: 50px;
+            background-color: hotpink;
+        }
+
+        .dropZone {
+            margin-top: 100px;
+            width: 300px;
+            height: 300px;
+            background-color: teal;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- JavaScript의 Drag and Drop API를 사용하여 구현해야 합니다.
+    다음 요구 사항을 충족하는 간단한 쇼핑 카트 웹 페이지를 구현하세요.
+
+    제품 목록과 장바구니 영역이 있습니다.
+    제품 목록에는 여러 개의 상품이 나열되어 있습니다.
+    사용자는 제품 목록의 상품을 드래그하여 장바구니 영역에 드롭할 수 있습니다.
+    장바구니 영역에는 드롭된 상품들의 이름이 표시됩니다. -->
+
+    <div draggable="true" class="target">target</div>
+
+    <div class="dropZone"></div>
+
+    <script>
+        const item = document.querySelector('.target');
+        const dropZone = document.querySelector('.dropZone');
+
+        // 드래그 시작
+        item.addEventListener('dragstart', (event) => {
+            console.log('drag start');
+
+            event.dataTransfer.setData('text/plain', '전달할 텍스트');
+
+            const obj = {
+                id: 1,
+                content: 'ggggg'
+            };
+
+            event.dataTransfer.setData('application/json', JSON.stringify(obj));
+        });
+        // 드래그 중...
+        // item.addEventListener('drag', () => {
+        //     console.log('draging...');
+        // });
+        // 드래그 종료
+        item.addEventListener('dragend', () => {
+            console.log('drag end');
+        });
+
+
+
+
+
+
+        // 드랍존에 진입했을 경우
+        dropZone.addEventListener('dragenter', () => {
+            console.log('drag enter!');
+        });
+
+        // 드랍존에 진입하여 있을 경우
+        dropZone.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            console.log('drag over!');
+        });
+
+        // 드랍존에서 떠났을 경우
+        dropZone.addEventListener('dragleave', () => {
+            console.log('drag leave!');
+        });
+
+        // 대상이 드롭되었을 경우
+        dropZone.addEventListener('drop', (event) => {
+            console.log("drop!!!!");
+
+            const text = event.dataTransfer.getData('text/plain');
+            const textJson = JSON.parse(event.dataTransfer.getData('application/json'));
+            dropZone.textContent = text;
+            console.log(textJson);
+        });
+
+    </script>
+</body>
+
+</html>
