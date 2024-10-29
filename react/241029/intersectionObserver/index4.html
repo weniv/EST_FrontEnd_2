@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        #progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        progress {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            border: none;
+        }
+
+        .section {
+            margin: 80px 20px 20px 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .section.read {
+            background-color: #f8fff8;
+            border-color: #4CAF50;
+        }
+
+        .section-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            background: #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .section.read .section-status {
+            background: #4CAF50;
+            color: white;
+        }
+
+        .content {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #666;
+        }
+
+        #progress-text {
+            text-align: right;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="progress-container">
+        <progress id="reading-progress" value="0" max="100"></progress>
+        <div id="progress-text">0%</div>
+    </div>
+
+    <div class="section" data-section-id="1">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 1: 소개</h2>
+        <div class="content">첫 번째 섹션입니다. 스크롤해서 읽어보세요!</div>
+    </div>
+
+    <div class="section" data-section-id="2">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 2: 본문</h2>
+        <div class="content">두 번째 섹션입니다.</div>
+    </div>
+
+    <div class="section" data-section-id="3">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 3: 설명</h2>
+        <div class="content">세 번째 섹션입니다.</div>
+    </div>
+
+    <div class="section" data-section-id="4">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 4: 웹 개발 기초</h2>
+        <div class="content">HTML, CSS, JavaScript는 웹 개발의 기초입니다.</div>
+    </div>
+
+    <div class="section" data-section-id="5">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 5: 프론트엔드 프레임워크</h2>
+        <div class="content">React, Vue, Angular에 대해 알아보겠습니다.</div>
+    </div>
+
+    <div class="section" data-section-id="6">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 6: 웹 성능 최적화</h2>
+        <div class="content">성능 최적화는 사용자 경험의 핵심입니다.</div>
+    </div>
+
+    <div class="section" data-section-id="7">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 7: 반응형 디자인</h2>
+        <div class="content">모든 디바이스에서 완벽한 경험을 제공하세요.</div>
+    </div>
+
+    <div class="section" data-section-id="8">
+        <span class="section-status">읽지 않음</span>
+        <h2>섹션 8: 웹 접근성</h2>
+        <div class="content">모두가 사용할 수 있는 웹을 만들어봅시다.</div>
+    </div>
+
+
+    <script>
+        const readSections = [];
+        const readSectionEls = document.querySelectorAll('.section');
+        const progressBar = document.querySelector('#reading-progress');
+        const progressTxt = document.querySelector('#progress-text');
+
+        const options = {
+            threshold: 0.7
+        };
+
+        const updateProgress = () => {
+            const progressRatio = (readSections.length / readSectionEls.length) * 100;
+
+            progressBar.value = progressRatio;
+            progressTxt.textContent = `${progressRatio}%`;
+        };
+
+        const callback = (entries) => {
+            entries.forEach(entry => {
+                const section = entry.target;
+                const sectionId = section.dataset.sectionId;
+
+                if (entry.isIntersecting && !readSections.includes(sectionId)) {
+                    readSections.push(sectionId);
+
+                    section.classList.add('read');
+                    section.querySelector('.section-status').textContent = '읽음';
+                    updateProgress();
+                }
+            });
+        }
+
+        const observer = new IntersectionObserver(callback, options);
+
+        readSectionEls.forEach((section) => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
