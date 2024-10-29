@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="target">target</div>
+    <script>
+        const target = document.querySelector('.target');
+        const options = {
+            root: null, // 기본값은 viewport 
+            threshold: 0.2 // 0 ~ 1 까지 설정 가능
+        };
+
+        const callback = (entry) => {
+            console.log(entry);
+        }
+
+
+        const observer = new IntersectionObserver(callback, options);
+
+        observer.observe(target);
+    </script>
+</body>
+
+</html>

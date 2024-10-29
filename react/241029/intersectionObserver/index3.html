@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .space {
+            height: 100vh;
+        }
+
+        ul li {
+            padding: 30px;
+            margin: 30px;
+            background-color: teal;
+            color: white;
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.5s;
+        }
+
+        ul li.visible {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="space"></div>
+    <ul>
+        <li>1번입니다.</li>
+        <li>1번입니다.</li>
+        <li>1번입니다.</li>
+    </ul>
+
+    <script>
+        const items = document.querySelectorAll('ul li');
+
+        const options = {
+            root: null,
+            threshold: 0.3
+        };
+        const callback = (entries) => {
+            console.log(entries);
+
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        };
+
+
+        const observer = new IntersectionObserver(callback, options);
+
+
+        items.forEach((item) => {
+            observer.observe(item);
+        });
+
+    </script>
+</body>
+
+</html>
