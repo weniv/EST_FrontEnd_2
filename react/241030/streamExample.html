@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="container">
+        <button>다운로드 시작!</button>
+        <progress class="progress-bar" value="0" max="100"></progress>
+        <strong class="status">대기중...</strong>
+        <span class="detail"></span>
+
+        <figure>
+            <img src="" alt="" class="downLoadedImage">
+            <figcaption></figcaption>
+        </figure>
+    </article>
+
+    <script>
+        const btnDown = document.querySelector('button');
+        const status = document.querySelector('.status');
+        const progressBar = document.querySelector('progress');
+        const detail = document.querySelector('.detail');
+        const img = document.querySelector('.downLoadedImage');
+
+
+        btnDown.addEventListener('click', downloadImg);
+
+        async function downloadImg() {
+            try {
+                const startTime = Date.now();
+
+                const response = await fetch('https://picsum.photos/5000/5000');
+
+                // 받아올 데이터의 전체 길이
+                const contentLength = response.headers.get('content-length');
+
+                const reader = response.body.getReader();
+
+                let receivedLength = 0;
+                let chucks = [];
+
+                while (true) {
+                    const { done, value } = await reader.read();
+
+                    if (done) {
+                        // 다운로드에 걸린 시간
+                        const totalTime = ((Date.now() - startTime) / 1000).toFixed(2);
+                        status.textContent = `다운로드 완료. 총 ${totalTime}초 소요`;
+                        break;
+                    }
+
+                    // 청크의 값을 모읍니다.
+                    chucks.push(value);
+                    receivedLength += value.length;
+
+                    const progress = (receivedLength / contentLength) * 100;
+                    progressBar.value = progress;
+                    status.textContent = `다운로드 중: ${progress}% 완료`;
+                    detail.textContent = `받은 데이터: ${receivedLength} / 전체 데이터: ${contentLength} bytes`;
+
+                    // await new Promise(resolve => setTimeout(resolve, 100));
+                }
+
+                // chuck 데이터를 모아서 blob 객체로 반환
+                const blob = new Blob(chucks);
+                const imgUrl = URL.createObjectURL(blob);
+                img.src = imgUrl;
+
+            } catch (error) {
+                console.error('다운로드 에러: ', error);
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>
