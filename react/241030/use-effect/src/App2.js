@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 
@@ -39,39 +39,39 @@ const ItemList = styled.div`
 
 
 export default function App2() {
-    const nationList = [
-        {
-            "title": "France",
-            "population": "200",
-            "id": "1",
-            "loc": "europe"
-        },
-        {
-            "title": "Italy",
-            "population": "300",
-            "id": "2",
-            "loc": "europe"
-        },
-        {
-            "title": "England",
-            "population": "400",
-            "id": "3",
-            "loc": "europe"
-        },
-        {
-            "title": "America",
-            "population": "500",
-            "id": "4",
-            "loc": "north-america"
-        },
-        {
-            "title": "Korea",
-            "population": "600",
-            "id": "5",
-            "loc": "asia"
-        }
-    ];
+    const [nationList, setNationList] = useState([]);
+    const [url, setUrl] = useState('http://localhost:3000/nations');
 
+    useEffect(() => {
+        // fetch('http://localhost:3000/nations')
+        //     .then((response) => {
+        //         if (!response.ok) {
+        //             throw new Error('다운로드에 실패했습니다!');
+        //         }
+        //         return response.json();
+        //     })
+        //     .then(json => {
+        //         console.log(json);
+        //         return setNationList(json);
+        //     })
+        //     .catch(error => console.error(error));
+        async function fetchData() {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('다운로드에 실패했습니다!');
+                }
+
+                const json = await response.json();
+                setNationList(json);
+            } catch (error) {
+                console.error('다운로드에 실패했습니다: ', error);
+            }
+        }
+
+        fetchData();
+
+    }, [url]);
 
 
     return (
@@ -87,9 +87,13 @@ export default function App2() {
                 })}
             </ul>
             <div className='options'>
-                <button>유럽목록</button>
-                <button>전체목록</button>
+                <button onClick={() => {
+                    console.log('click!');
+                    setUrl('http://localhost:3000/nations?loc=europe')
+                }
+                }>유럽목록</button>
+                <button onClick={() => setUrl('http://localhost:3000/nations')}>전체목록</button>
             </div>
-        </ItemList>
+        </ItemList >
     )
 }
