@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 스크립트의 실행 타이밍을 내가 결정하고 싶을 때.
+        // readystatechange --> interactive : html 파싱이 끝나고 dom 이 준비된 상태
+        // --> complete : 문서의 모든 리소스 로딩이 끝난 상태입니다. 
+
+
+        document.addEventListener('readystatechange', () => {
+            switch (document.readyState) {
+                case 'interactive':
+                    console.log('돔 파싱 완료!');
+                    break;
+
+                case 'complete':
+                    console.log('페이지 로딩 완료!');
+                    break;
+            }
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOMContentLoaded!!');
+        });
+
+
+        window.addEventListener('load', () => {
+            console.log('load!!');
+        })
+    </script>
+</body>
+
+</html>
