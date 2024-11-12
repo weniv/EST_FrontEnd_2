@@ -32,19 +32,24 @@
     <script src="textManager.js"></script>
     <script src="viewManager.js"></script>
     <script>
-        (() => {
+        // (() => {
+
+        const article = document.querySelector('article');
+        const viewerEl = article.querySelector('.viewer');
+        const inpEl = article.querySelector('.inp-txt');
+        const btnEl = article.querySelector('.btn-push');
+
+        viewerEl.addEventListener('click', () => {
+            console.log('viewer clicked!!');
+        });
 
 
-            const article = document.querySelector('article');
-            const viewerEl = article.querySelector('.viewer');
-            const inpEl = article.querySelector('.inp-txt');
-            const btnEl = article.querySelector('.btn-push');
 
-            const textManger = new TextManager();
-            const viewManager = new ViewManager(textManger, { viewerEl, inpEl, btnEl });
+        const textManger = new TextManager();
+        const viewManager = new ViewManager(textManger, { viewerEl, inpEl, btnEl });
 
-            viewManager.updateView();
-        })();
+        viewManager.updateView();
+        // })();
     </script>
 </body>
 
