@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TypeScript Calculator</title>
+    <style>
+        .calculator {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .display {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            text-align: right;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+        }
+        button {
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" class="display" readonly>
+        <div class="buttons">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>+</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>*</button>
+            <button>C</button>
+            <button>0</button>
+            <button>=</button>
+            <button>/</button>
+        </div>
+    </div>
+
+    <!-- TypeScript CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/5.3.3/typescript.min.js"></script>
+    
+    <!-- TypeScript 파일 로드 -->
+    <script>
+        // TypeScript 파일을 가져와서 컴파일하고 실행하는 함수
+        async function loadAndCompileTS() {
+            try {
+                // calculator.ts 파일 가져오기
+                const response = await fetch('calculator.ts');
+                const tsCode = await response.text();
+                
+                // TypeScript 코드 컴파일
+                const jsCode = ts.transpileModule(tsCode, {
+                    compilerOptions: {
+                        target: ts.ScriptTarget.ES5,
+                        module: ts.ModuleKind.None
+                    }
+                }).outputText;
+                
+                // 컴파일된 JavaScript 실행
+                const script = document.createElement('script');
+                script.textContent = jsCode;
+                document.body.appendChild(script);
+            } catch (error) {
+                console.error('TypeScript 파일 로드 실패:', error);
+            }
+        }
+
+        // DOM이 로드된 후 TypeScript 파일 로드
+        window.addEventListener('DOMContentLoaded', loadAndCompileTS);
+    </script>
+</body>
+</html>
