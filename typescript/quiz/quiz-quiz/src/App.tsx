@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { QuizConfig, QuizQuestion } from "./types/quiz";
+import { QuizConfig, QuizQuestion, QuizSummary } from "./types/quiz";
 import QuizSetup from "./components/QuizSetup";
 import { useState } from "react";
 import QuizGame from "./components/QuizGame";
@@ -16,6 +16,7 @@ function App() {
 
   const [step, setStep] = useState<QuizStep>(QuizStep.SETUP);
   const [questions, setQuestions] = useState<QuizQuestion[]>([]);
+  const [result, setResult] = useState<QuizSummary | null>(null);
 
   const startQuiz = async (config: QuizConfig) => {
 
@@ -43,6 +44,13 @@ function App() {
   }
 
 
+  // 퀴즈 완료시 결과를 저장하고, 결과 화면으로 전환하는 함수입니다.
+  const completeQuiz = (quizResult: QuizSummary) => {
+    setResult(quizResult);
+    setStep(QuizStep.RESULT);
+  }
+
+
   return (
     <AppContainer>
       <header>
@@ -50,7 +58,7 @@ function App() {
       </header>
       <main>
         {step === QuizStep.SETUP && <QuizSetup onStart={startQuiz} />}
-        {step === QuizStep.PLAYING && <QuizGame questions={questions} />}
+        {step === QuizStep.PLAYING && <QuizGame questions={questions} onComplete={completeQuiz} />}
       </main>
     </AppContainer>
   )
