@@ -3,6 +3,7 @@ import { QuizConfig, QuizQuestion, QuizSummary } from "./types/quiz";
 import QuizSetup from "./components/QuizSetup";
 import { useState } from "react";
 import QuizGame from "./components/QuizGame";
+import QuizResult from "./components/QuizResult";
 
 // 퀴즈의 진행 단계
 enum QuizStep {
@@ -50,6 +51,11 @@ function App() {
     setStep(QuizStep.RESULT);
   }
 
+  const restartQuiz = () => {
+    setQuestions([]);
+    setResult(null);
+    setStep(QuizStep.SETUP);
+  }
 
   return (
     <AppContainer>
@@ -59,6 +65,7 @@ function App() {
       <main>
         {step === QuizStep.SETUP && <QuizSetup onStart={startQuiz} />}
         {step === QuizStep.PLAYING && <QuizGame questions={questions} onComplete={completeQuiz} />}
+        {step === QuizStep.RESULT && result && <QuizResult result={result} onRestart={restartQuiz} />}
       </main>
     </AppContainer>
   )
